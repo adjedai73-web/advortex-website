@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>اختبار — أي باقة تناسبك؟ | أدفورتكس</title>
+<meta name="description" content="أجب عن 4 أسئلة سريعة واكتشف باقة أدفورتكس المثالية لتجارتك.">
+<meta property="og:title" content="أدفورتكس — وكالة التسويق الرقمي في الجزائر">
+<meta property="og:locale" content="ar_DZ">
+<meta property="og:description" content="نحوّل حضورك على الإنترنت إلى زبائن حقيقيين. فيسبوك • إنستغرام • تيك توك • فيديو.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://advortex-agency.vercel.app/quiz-ar.html">
+<meta property="og:image" content="https://advortex-agency.vercel.app/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Advortex — Agence Marketing Digital à Alger">
+<meta name="twitter:description" content="On transforme votre présence en ligne en clients réels. Facebook • Instagram • TikTok • Vidéo.">
+<meta name="twitter:image" content="https://advortex-agency.vercel.app/assets/og-image.jpg">
+<link rel="icon" href="assets/logo-mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Amiri:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#060606; --bg2:#0c0c0c; --card:#111111; --line:#232323;
+  --text:#f5f5f5; --muted:#a8a8a8; --dim:#6e6e6e;
+  --white:#ffffff; --wa:#25d366;
+  --radius:18px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,.brand{font-family:'Montserrat',sans-serif}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+section{padding:96px 0;position:relative}
+.eyebrow{display:inline-block;font-size:12px;letter-spacing:3px;font-weight:600;color:var(--muted);text-transform:uppercase;margin-bottom:18px;border:1px solid var(--line);padding:8px 16px;border-radius:100px;background:rgba(255,255,255,.02)}
+h2{font-size:clamp(30px,4.5vw,52px);font-weight:800;line-height:1.12;letter-spacing:-.5px;margin-bottom:16px}
+.lead{color:var(--muted);font-size:17px;max-width:620px}
+.center{text-align:center}.center .lead{margin:0 auto}
+
+/* ---------- NAV ---------- */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+nav.scrolled{background:rgba(6,6,6,.82);backdrop-filter:blur(14px);border-color:var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:96px}
+.logo{display:flex;align-items:center}
+.logo img{height:54px;width:auto}
+footer .logo img{height:88px}
+.nav-links{display:flex;gap:30px;font-size:14.5px;color:var(--muted)}
+.nav-links a{transition:color .2s}.nav-links a:hover{color:var(--white)}
+.btn{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:15px;padding:14px 28px;border-radius:100px;border:1px solid transparent;cursor:pointer;transition:transform .15s,box-shadow .2s,background .2s}
+.btn:active{transform:scale(.97)}
+.btn-white{background:var(--white);color:#0a0a0a}
+.btn-white:hover{box-shadow:0 8px 32px rgba(255,255,255,.22)}
+.btn-ghost{border-color:var(--line);color:var(--text);background:rgba(255,255,255,.02)}
+.btn-ghost:hover{border-color:#555}
+.btn-wa{background:var(--wa);color:#062b16}
+.btn-wa:hover{box-shadow:0 8px 32px rgba(37,211,102,.35)}
+.btn-sm{padding:11px 22px;font-size:14px}
+.burger{display:none;background:none;border:0;cursor:pointer;flex-direction:column;gap:5px;padding:8px}
+.burger span{width:24px;height:2px;background:#fff;border-radius:2px;transition:.25s}
+.mobile-menu{display:none;flex-direction:column;gap:4px;padding:14px 22px 22px;background:rgba(6,6,6,.96);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.mobile-menu a{padding:12px 4px;font-size:16px;color:var(--muted);border-bottom:1px solid #161616}
+.mobile-menu a:last-child{border:0}
+
+/* ---------- HERO ---------- */
+.hero{min-height:100svh;display:flex;align-items:center;padding:150px 0 80px;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(700px 380px at 12% 18%,rgba(255,255,255,.07),transparent 60%),
+  radial-gradient(800px 420px at 88% 82%,rgba(255,255,255,.05),transparent 60%);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center;width:100%}
+.hero h1{font-size:clamp(38px,6vw,72px);font-weight:800;line-height:1.05;letter-spacing:-1.5px;margin:20px 0 22px}
+.hero h1 .stroke{font-family:'Amiri',serif;font-style:italic;font-weight:600;color:#fff;-webkit-text-stroke:0}
+.hero p.sub{color:var(--muted);font-size:18px;max-width:520px;margin-bottom:34px}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px}
+.hero-tags{display:flex;flex-wrap:wrap;gap:10px}
+.hero-tags span{font-size:13px;color:var(--dim);border:1px solid var(--line);border-radius:100px;padding:7px 15px}
+.hero-visual{display:flex;justify-content:center;position:relative}
+.phone{width:min(300px,72vw);aspect-ratio:9/19.2;border-radius:44px;border:1px solid #333;background:#000;padding:12px;box-shadow:0 40px 100px rgba(0,0,0,.7),0 0 0 8px rgba(255,255,255,.03);position:relative;transform:rotate(3deg)}
+.phone video{width:100%;height:100%;object-fit:cover;border-radius:34px;display:block}
+.phone::after{content:"";position:absolute;top:22px;left:50%;transform:translateX(-50%);width:96px;height:24px;background:#000;border-radius:100px;border:1px solid #222}
+.hero-badge{position:absolute;bottom:34px;left:-30px;background:rgba(14,14,14,.9);border:1px solid var(--line);backdrop-filter:blur(10px);border-radius:16px;padding:14px 18px;font-size:13.5px;color:var(--muted);box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.hero-badge strong{display:block;color:#fff;font-size:16px;font-family:'Montserrat'}
+
+/* ---------- MARQUEE ---------- */
+.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:20px 0;overflow:hidden;white-space:nowrap;background:var(--bg2)}
+.marquee-track{display:inline-flex;gap:48px;animation:scroll 26s linear infinite;font-family:'Montserrat';font-weight:700;font-size:15px;letter-spacing:4px;color:var(--dim)}
+.marquee-track i{color:#fff;font-style:normal}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* ---------- SERVICES ---------- */
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:54px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:34px 28px;transition:transform .25s,border-color .25s}
+.card:hover{transform:translateY(-6px);border-color:#444}
+.card .icon{width:52px;height:52px;border-radius:14px;background:#fff;color:#0a0a0a;display:flex;align-items:center;justify-content:center;margin-bottom:22px}
+.card .icon svg{width:26px;height:26px}
+.card h3{font-size:19px;font-weight:700;margin-bottom:12px}
+.card p{color:var(--muted);font-size:14.5px}
+
+/* ---------- WORK ---------- */
+.work-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center;margin-top:54px}
+.work-copy p{color:var(--muted);margin-bottom:16px;font-size:16px}
+.work-copy ul{list-style:none;margin:26px 0 34px;display:grid;gap:14px}
+.work-copy li{display:flex;gap:12px;align-items:flex-start;color:var(--muted);font-size:15px}
+.work-copy li b{color:#fff;font-weight:600}
+.check{flex:none;width:22px;height:22px;border-radius:100px;background:#fff;color:#0a0a0a;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;margin-top:2px}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:60px}
+.g-item{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);position:relative;aspect-ratio:9/12;background:#111}
+.g-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.g-item:hover img{transform:scale(1.05)}
+.g-item span{position:absolute;bottom:0;left:0;right:0;padding:26px 18px 16px;font-family:'Montserrat';font-weight:700;font-size:15px;background:linear-gradient(transparent,rgba(0,0,0,.85))}
+.g-item video{width:100%;height:100%;object-fit:cover;display:block}
+.videos-grid .g-item{aspect-ratio:16/10}
+/* Bouton WhatsApp flottant */
+.wa-float{position:fixed;right:22px;bottom:22px;z-index:999;width:60px;height:60px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 26px rgba(37,211,102,.45);transition:transform .25s}
+.wa-float:hover{transform:scale(1.1)}
+.wa-float svg{width:32px;height:32px;fill:#fff}
+@media(max-width:640px){.wa-float{right:16px;bottom:16px;width:56px;height:56px}}
+
+/* ---------- STEPS ---------- */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:54px;counter-reset:step}
+.step{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:30px 26px;position:relative}
+.step::before{counter-increment:step;content:"0" counter(step);font-family:'Montserrat';font-weight:800;font-size:44px;color:transparent;-webkit-text-stroke:1px #555;display:block;margin-bottom:16px}
+.step h3{font-size:18px;margin-bottom:10px}
+.step p{color:var(--muted);font-size:14.5px}
+
+/* ---------- PACKS ---------- */
+.packs-wrap{position:relative}
+.packs-glow{position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:min(900px,90%);height:420px;background:radial-gradient(closest-side,rgba(255,255,255,.07),transparent 70%);pointer-events:none}
+.packs{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:60px;align-items:stretch;position:relative;z-index:1}
+.pack{background:linear-gradient(180deg,#0e0e11,#08080a);border:1px solid #222226;border-radius:26px;padding:44px 36px;display:flex;flex-direction:column;position:relative;transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease;overflow:hidden}
+.pack::after{content:"";position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent)}
+.pack:hover{transform:translateY(-10px);border-color:#3d3d44;box-shadow:0 34px 70px rgba(0,0,0,.55)}
+.pack.hot{border:1px solid transparent;background:linear-gradient(#0d0d10,#0d0d10) padding-box,linear-gradient(165deg,#ffffff 0%,#5a5a60 45%,#ffffff 100%) border-box;box-shadow:0 0 70px rgba(255,255,255,.10),0 34px 90px rgba(0,0,0,.65);transform:scale(1.045)}
+.pack.hot:hover{transform:scale(1.045) translateY(-10px)}
+.pack .tag{position:absolute;top:16px;left:50%;transform:translateX(-50%);background:#fff;color:#0a0a0a;font-size:11px;font-weight:800;letter-spacing:2px;padding:7px 20px;border-radius:100px;font-family:'Montserrat';box-shadow:0 6px 24px rgba(255,255,255,.25);white-space:nowrap}
+.pack.hot{padding-top:58px}
+.pack h3{font-family:'Montserrat';font-size:33px;font-weight:800;margin-bottom:2px;letter-spacing:.5px}
+.pack .for{color:var(--dim);font-size:14px;margin-bottom:24px}
+.pack ul{list-style:none;display:grid;gap:13px;margin-bottom:34px;flex:1}
+.pack li{position:relative;padding-left:36px;color:#c9c9ce;font-size:15px;align-items:flex-start;line-height:1.5}
+.pack li::before{content:"✓";position:absolute;left:0;top:1px;width:23px;height:23px;border-radius:50%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.22);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.pack .price{font-family:'Montserrat';font-weight:800;font-size:34px;margin:14px 0 8px;color:#fff;letter-spacing:.5px;line-height:1.15;text-shadow:0 2px 30px rgba(255,255,255,.15)}
+.pack .price span{font-weight:500;font-size:15px;color:var(--muted)}
+.pack .btn{margin-top:auto}
+@media(max-width:900px){.pack.hot{transform:none}.pack.hot:hover{transform:translateY(-10px)}}
+
+/* ---------- FAQ ---------- */
+.faq{max-width:760px;margin:50px auto 0;display:grid;gap:12px}
+.faq-item{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.faq-q{width:100%;background:none;border:0;color:#fff;font-family:'Montserrat';font-weight:600;font-size:16px;text-align:left;padding:20px 22px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.faq-q .plus{font-size:22px;font-weight:400;color:var(--dim);transition:transform .25s;flex:none}
+.faq-item.open .faq-q .plus{transform:rotate(45deg);color:#fff}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;color:var(--muted);font-size:15px}
+.faq-a p{padding:0 22px 22px}
+
+/* ---------- CONTACT ---------- */
+.contact-box{background:linear-gradient(180deg,#101010,#0a0a0a);border:1px solid var(--line);border-radius:28px;padding:clamp(36px,6vw,72px);display:grid;grid-template-columns:1fr 1fr;gap:50px;margin-top:54px;position:relative;overflow:hidden}
+.contact-box::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 300px at 50% 0%,rgba(255,255,255,.06),transparent 65%);pointer-events:none}
+.contact-info h2{margin-bottom:14px}
+.contact-rows{display:grid;gap:16px;margin:30px 0}
+.c-row{display:flex;align-items:center;gap:14px;color:var(--muted);font-size:15.5px}
+.c-row .icon{width:44px;height:44px;flex:none;border-radius:12px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.03)}
+.c-row .icon svg{width:20px;height:20px}
+.c-row b{color:#fff;font-weight:600}
+.form{display:grid;gap:14px;position:relative}
+.form input,.form textarea,.form select{background:#0d0d0d;border:1px solid var(--line);border-radius:12px;color:#fff;padding:15px 18px;font-size:15px;font-family:'Inter';width:100%;outline:none;transition:border-color .2s}
+.form input:focus,.form textarea:focus,.form select:focus{border-color:#666}
+.form textarea{resize:vertical;min-height:110px}
+.form label{font-size:13px;color:var(--dim);font-weight:600;letter-spacing:.5px}
+
+/* ---------- FOOTER ---------- */
+footer{border-top:1px solid var(--line);padding:54px 0 34px;background:var(--bg2)}
+.foot{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap;margin-bottom:36px}
+.foot p{color:var(--dim);font-size:14px;max-width:340px;margin-top:14px}
+.foot-links{display:flex;gap:60px;flex-wrap:wrap}
+.foot-links h4{font-family:'Montserrat';font-size:13px;letter-spacing:2px;color:var(--dim);margin-bottom:14px}
+.foot-links a{display:block;color:var(--muted);font-size:14.5px;padding:5px 0}
+.foot-links a:hover{color:#fff}
+.copy{border-top:1px solid #161616;padding-top:24px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--dim);font-size:13px}
+
+/* ---------- CHIFFRES ---------- */
+.stats-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:18px;margin-top:44px}
+.stat{text-align:center;padding:10px 4px}
+.stat .num{font-family:'Montserrat';font-weight:800;font-size:clamp(28px,3.2vw,40px);letter-spacing:-.5px;font-variant-numeric:tabular-nums}
+.stat .lbl{color:var(--dim);font-size:13px;margin-top:8px;line-height:1.45}
+@media(max-width:900px){.stats-grid{grid-template-columns:repeat(3,1fr);row-gap:30px}}
+@media(max-width:560px){.stats-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* ---------- TÉMOIGNAGES ---------- */
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px}
+.testi{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:32px 28px;display:flex;flex-direction:column;gap:18px;transition:transform .35s ease,border-color .35s ease}
+.testi:hover{transform:translateY(-6px);border-color:#3d3d3d}
+.testi .stars{color:#fff;font-size:15px;letter-spacing:4px}
+.testi blockquote{margin:0;color:var(--muted);font-size:15px;line-height:1.75}
+.testi-who{display:flex;align-items:center;gap:14px;margin-top:auto;padding-top:6px}
+.avatar{width:52px;height:52px;flex:none;border-radius:50%;background:#fff;color:#000;font-family:'Montserrat';font-weight:800;font-size:17px;display:flex;align-items:center;justify-content:center}
+.testi-who b{display:block;font-size:15px;font-weight:600}
+.testi-who span{color:var(--dim);font-size:13px}
+@media(max-width:900px){.testi-grid{grid-template-columns:1fr;max-width:560px;margin-left:auto;margin-right:auto}}
+
+/* ---------- REVEAL ---------- */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:960px){
+  .hero-grid{grid-template-columns:1fr;gap:50px}
+  .hero{padding-top:130px}
+  .hero-visual{order:-1}
+  .phone{width:min(250px,64vw)}
+  .hero-badge{left:0}
+  .grid4{grid-template-columns:repeat(2,1fr)}
+  .work-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .packs{grid-template-columns:1fr;max-width:480px;margin-left:auto;margin-right:auto}
+  .contact-box{grid-template-columns:1fr}
+  .nav-links,.nav-cta{display:none}
+  .burger{display:flex}
+  .mobile-menu.show{display:flex}
+  section{padding:72px 0}
+}
+@media(max-width:560px){
+  .grid4,.steps{grid-template-columns:1fr}
+  .gallery{grid-template-columns:1fr;max-width:340px;margin-left:auto;margin-right:auto}
+}
+</style>
+<style>
+.page-hero{padding:150px 0 8px}
+.page-hero h1{font-size:clamp(38px,5vw,58px);line-height:1.08;margin:0 0 16px;font-weight:800}
+.page-hero .sub{max-width:640px;color:var(--muted);font-size:17px;line-height:1.7}
+.nav-links a.active{color:var(--white);font-weight:600}
+</style>
+<style>
+.quiz-box{max-width:680px;margin:0 auto;background:var(--bg2);border:1px solid var(--line);border-radius:24px;padding:44px;position:relative}
+.quiz-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;color:var(--muted);font-size:13.5px}
+.quiz-bar{height:6px;background:rgba(255,255,255,.08);border-radius:100px;overflow:hidden;margin-bottom:30px}
+.quiz-bar i{display:block;height:100%;width:0;background:#fff;border-radius:100px;transition:width .45s cubic-bezier(.2,.8,.2,1)}
+.quiz-q{font-size:clamp(20px,3vw,25px);font-weight:700;margin:0 0 24px;line-height:1.4}
+.quiz-opts{display:grid;gap:12px}
+.quiz-opt{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:16px;padding:17px 22px;color:#fff;font-size:16px;cursor:pointer;text-align:start;font-family:inherit;transition:transform .15s,border-color .2s,background .2s;width:100%}
+.quiz-opt:hover{border-color:rgba(255,255,255,.6);background:rgba(255,255,255,.07);transform:translateY(-2px)}
+.quiz-back{background:none;border:0;color:var(--muted);margin-top:22px;cursor:pointer;font-size:14px;font-family:inherit;padding:0}
+.quiz-back:hover{color:#fff}
+.quiz-result{text-align:center;padding:6px 0}
+.quiz-result .r-price{font-size:clamp(30px,4vw,40px);font-weight:800;margin:14px 0 6px}
+.quiz-result .r-desc{color:var(--muted);max-width:460px;margin:0 auto 28px;line-height:1.7}
+.quiz-result .r-ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.quiz-step{animation:qin .35s ease}
+@keyframes qin{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@media(max-width:560px){.quiz-box{padding:30px 22px}}
+</style>
+<style>
+/* ===== RTL / Arabic ===== */
+html[dir="rtl"] body{font-family:'Cairo',sans-serif}
+html[dir="rtl"] h1,html[dir="rtl"] h2,html[dir="rtl"] h3,html[dir="rtl"] h4,html[dir="rtl"] .btn,html[dir="rtl"] .faq-q,html[dir="rtl"] .g-item span,html[dir="rtl"] .pack .tag,html[dir="rtl"] .step::before{font-family:'Cairo',sans-serif}
+html[dir="rtl"] .eyebrow,html[dir="rtl"] .pack .tag{letter-spacing:0}
+html[dir="rtl"] .pack li{padding-left:0;padding-right:36px}
+html[dir="rtl"] .pack li::before{left:auto;right:0}
+html[dir="rtl"] .faq-q{text-align:right}
+html[dir="rtl"] .hero-badge{left:auto;right:-30px}
+@media(max-width:900px){html[dir="rtl"] .hero-badge{right:0}}
+.lang-sw{border:1px solid var(--line);border-radius:100px;padding:8px 18px !important}
+</style>
+
+<style>
+.sticky-cta{position:fixed;bottom:calc(14px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);z-index:60;display:none;align-items:center;gap:6px;padding:7px;background:rgba(12,12,12,.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid #2b2b2b;border-radius:100px;box-shadow:0 12px 32px rgba(0,0,0,.55);max-width:calc(100vw - 28px)}
+@media(max-width:768px){.sticky-cta{display:flex}body{padding-bottom:100px}.wa-float{display:none !important}}
+.sc-btn{display:inline-flex;align-items:center;gap:7px;padding:10px 16px;border-radius:100px;font-weight:700;font-size:13px;text-decoration:none;font-family:'Montserrat',sans-serif;white-space:nowrap}
+.sc-btn svg{width:15px;height:15px;flex:none}
+.sc-wa{background:#fff;color:#0a0a0a}
+.sc-call{color:#e8e8e8;background:transparent;border:1px solid #3a3a3a}
+</style>
+<style>
+/* ===== Identite Advortex : loader, vortex, typo signature ===== */
+.vtx{display:block;animation:vtxspin 36s linear infinite}
+.vtx-rev{transform-box:fill-box;transform-origin:center;animation:vtxspinrev 24s linear infinite}
+@keyframes vtxspin{to{transform:rotate(360deg)}}
+@keyframes vtxspinrev{from{transform:rotate(120deg)}to{transform:rotate(-240deg)}}
+.hero-vtx{position:absolute;top:50%;right:-160px;transform:translateY(-50%);width:min(660px,95vw);opacity:.13;pointer-events:none;z-index:0}
+@media(max-width:768px){.hero-vtx{right:-230px;opacity:.1}}
+.vtx-div{display:flex;align-items:center;gap:16px;justify-content:center;padding:8px 0 0}
+.vtx-div::before,.vtx-div::after{content:"";height:1px;flex:1;max-width:420px;background:linear-gradient(90deg,transparent,#2b2b2b)}
+.vtx-div::after{background:linear-gradient(90deg,#2b2b2b,transparent)}
+.vtx-div .vtx{width:52px;height:52px;opacity:.55;flex:none}
+#loader{position:fixed;inset:0;background:#0a0a0a;z-index:400;display:flex;flex-direction:column;gap:20px;align-items:center;justify-content:center;transition:opacity .55s ease}
+#loader.done{opacity:0;pointer-events:none}
+#loader img{width:148px;height:auto}
+#loader .vtx{width:46px;height:46px;opacity:.75}
+.foot-giant{font-weight:800;font-size:clamp(60px,13.5vw,176px);line-height:.95;color:transparent;-webkit-text-stroke:1px #2b2b2b;text-align:center;letter-spacing:.03em;user-select:none;margin:6px 0 26px}
+.serif-ac{font-family:'Amiri',serif;font-style:italic;font-weight:500}
+@media(prefers-reduced-motion:reduce){.vtx,.vtx-rev{animation:none}}
+</style>
+<style>
+/* ===== Assistant chat Advortex ===== */
+#chatFab{position:fixed;right:22px;bottom:22px;z-index:1000;width:60px;height:60px;border-radius:50%;background:#fff;color:#0a0a0a;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,.5);transition:transform .25s}
+#chatFab:hover{transform:scale(1.08)}
+#chatFab svg{width:28px;height:28px}
+#chatDot{position:absolute;top:1px;right:1px;width:14px;height:14px;border-radius:50%;background:#22c55e;border:3px solid #0a0a0a}
+#chatTeaser{position:fixed;right:94px;bottom:38px;z-index:1000;background:#fff;color:#0a0a0a;font-size:13.5px;font-weight:600;padding:10px 16px;border-radius:16px;border-bottom-right-radius:4px;box-shadow:0 8px 24px rgba(0,0,0,.4);opacity:0;transform:translateY(8px);pointer-events:none;transition:all .4s;max-width:240px;font-family:'Montserrat',sans-serif}
+#chatTeaser.show{opacity:1;transform:none;pointer-events:auto;cursor:pointer}
+#chatPanel{position:fixed;right:22px;bottom:96px;z-index:1001;width:min(380px,calc(100vw - 32px));height:min(540px,calc(100dvh - 220px));min-height:380px;background:#101010;border:1px solid #2b2b2b;border-radius:22px;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.65);opacity:0;transform:translateY(16px) scale(.98);pointer-events:none;transition:all .32s cubic-bezier(.2,.9,.3,1.15);font-family:'Montserrat',sans-serif}
+#chatPanel.open{opacity:1;transform:none;pointer-events:auto}
+body.chat-open .wa-float{opacity:0 !important;pointer-events:none !important}
+.cp-head{display:flex;align-items:center;gap:10px;padding:13px 14px;background:#161616;border-bottom:1px solid #242424}
+.cp-head img{width:36px;height:36px;object-fit:contain;flex:none}
+.cp-head b{display:block;font-size:14px;color:#fff}
+.cp-head span{font-size:11.5px;color:#4ade80;display:flex;align-items:center;gap:5px}
+.cp-head span i{width:7px;height:7px;border-radius:50%;background:#4ade80;display:inline-block}
+.cp-head button{margin-inline-start:auto;background:none;border:none;color:#888;font-size:24px;cursor:pointer;line-height:1;padding:0 2px}
+.cp-body{flex:1;overflow-y:auto;padding:16px 14px;display:flex;flex-direction:column;gap:8px}
+.cp-msg{max-width:86%;padding:9px 13px;border-radius:16px;font-size:13.5px;line-height:1.5;color:#f0f0f0;animation:cpIn .3s ease}
+.cp-msg.bot{align-self:flex-start;background:#1e1e1e;border-bottom-inline-start-radius:4px}
+.cp-msg.user{align-self:flex-end;background:#fff;color:#0a0a0a;border-bottom-inline-end-radius:4px}
+.cp-msg a.cp-cta{display:inline-block;margin-top:8px;background:#fff;color:#0a0a0a !important;font-weight:700;font-size:12.5px;padding:8px 14px;border-radius:100px;text-decoration:none}
+.cp-typing{align-self:flex-start;background:#1e1e1e;border-radius:16px;border-bottom-inline-start-radius:4px;padding:13px 16px;display:flex;gap:5px}
+.cp-typing b{width:7px;height:7px;border-radius:50%;background:#777;animation:cpB 1s infinite}
+.cp-typing b:nth-child(2){animation-delay:.15s}.cp-typing b:nth-child(3){animation-delay:.3s}
+.cp-chips{display:flex;gap:8px;padding:10px 14px;flex-wrap:wrap;border-top:1px solid #1e1e1e}
+.cp-chips button{background:#1b1b1b;border:1px solid #333;color:#fff;font-size:12.5px;font-weight:600;padding:8px 13px;border-radius:100px;cursor:pointer;font-family:inherit}
+.cp-chips button:hover{background:#2a2a2a}
+.cp-input{display:flex;gap:8px;padding:12px 14px;border-top:1px solid #242424;background:#141414}
+.cp-input input{flex:1;background:#1e1e1e;border:1px solid #2c2c2c;border-radius:100px;color:#fff;padding:10px 16px;font-size:13.5px;font-family:inherit;outline:none;min-width:0}
+.cp-input input:focus{border-color:#555}
+.cp-input button{width:42px;height:42px;flex:none;border-radius:50%;border:none;background:#fff;color:#0a0a0a;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.cp-input button svg{width:18px;height:18px}
+@media(min-width:769px){.wa-float{bottom:96px !important}}
+@media(max-width:768px){#chatFab{right:16px;bottom:100px;width:56px;height:56px}#chatPanel{right:16px;left:16px;width:auto;bottom:170px;height:min(500px,calc(100dvh - 280px));min-height:340px}#chatTeaser{right:84px;bottom:114px}}
+@keyframes cpIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@keyframes cpB{0%,100%{opacity:.3}50%{opacity:1}}
+</style>
+</head>
+</head>
+<body>
+<div id="loader" aria-hidden="true"><img src="assets/logo.png" alt="Advortex"><svg class="vtx" viewBox="0 0 400 400" fill="none" aria-hidden="true"><g stroke="#fff" stroke-width="1.4"><ellipse cx="200" cy="200" rx="182" ry="72" opacity=".55"/><ellipse cx="200" cy="200" rx="182" ry="72" opacity=".3" transform="rotate(60 200 200)"/><g class="vtx-rev"><ellipse cx="200" cy="200" rx="182" ry="72" opacity=".2"/></g><circle cx="200" cy="200" r="44" opacity=".4"/></g></svg></div>
+<script>(function(){var l=document.getElementById('loader');if(!l)return;var done=function(){l.classList.add('done');setTimeout(function(){l.remove()},700)};var t0=Date.now();var go=function(){setTimeout(done,Math.max(0,450-(Date.now()-t0)))};if(document.readyState==='complete')go();else window.addEventListener('load',go);setTimeout(done,3000);})();</script>
+
+
+<nav id="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="index-ar.html"><img src="assets/logo.png" alt="أدفورتكس — وكالة التسويق عبر شبكات التواصل"></a>
+    <div class="nav-links">
+      <a href="index-ar.html">الرئيسية</a>
+      <a href="index-ar.html#services">خدماتنا</a>
+      <a href="index-ar.html#realisations">أعمالنا</a>
+      <a href="index-ar.html#methode">منهجيتنا</a>
+      <a href="packs-ar.html">الباقات</a>
+      <a href="quiz-ar.html" class="active">اختبار</a>
+      <a href="index-ar.html#faq">الأسئلة الشائعة</a>
+      <a href="quiz.html" class="lang-sw">FR</a><a href="quiz-en.html" class="lang-sw">EN</a>
+    </div>
+    <a class="btn btn-white btn-sm nav-cta" href="#contact">عرض سعر مجاني</a>
+    <button class="burger" id="burger" aria-label="القائمة"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mmenu">
+    <a href="index-ar.html">الرئيسية</a>
+    <a href="index-ar.html#services">خدماتنا</a>
+    <a href="index-ar.html#realisations">أعمالنا</a>
+    <a href="index-ar.html#methode">منهجيتنا</a>
+    <a href="packs-ar.html">الباقات</a>
+    <a href="quiz-ar.html" class="active">اختبار</a>
+    <a href="index-ar.html#faq">الأسئلة الشائعة</a>
+    <a href="quiz.html">FR</a><a href="quiz-en.html">EN</a>
+    <a href="#contact" style="color:#fff;font-weight:600">عرض سعر مجاني ←</a>
+  </div>
+</nav>
+
+<header class="page-hero" id="top">
+  <div class="wrap">
+    <span class="eyebrow rv">اختبار</span>
+    <h1 class="rv">أي باقة تناسبك؟</h1>
+    <p class="sub rv">أجب عن 4 أسئلة سريعة — وسنرشح لك الصيغة المثالية لتجارتك.</p>
+  </div>
+</header>
+
+<section id="quiz" style="padding-top:34px">
+  <div class="wrap">
+    <div class="quiz-box rv" id="quizBox"></div>
+  </div>
+</section>
+
+<script>
+(function(){
+var QUESTIONS=[
+ {q:"ما هو قطاع نشاطك؟",o:["مطعم","صالون تجميل","متجر","شركة","أخرى"]},
+ {q:"كم من المحتوى تريد شهرياً؟",o:["خفيف — للبداية","منتظم — للنمو السريع","مكثّف — للسيطرة"]},
+ {q:"هل الفيديو (ريلز) أولوية بالنسبة لك؟",o:["نعم، إنها الأولوية","قليلاً","لا، المنشورات والستوري تكفي"]},
+ {q:"ما هي ميزانيتك الشهرية؟",o:["أقل من 70 000 دج","70 000 – 95 000 دج","أكثر من 95 000 دج","أريد شيئاً مخصصاً"]}
+];
+var RESULTS={
+ premium:{name:"بريميوم",price:"70 000 دج / شهرياً",desc:"مثالي لإطلاق حضورك على الإنترنت: محتوى منتظم واحترافي، دون إرهاق ميزانيتك."},
+ pro:{name:"برو",price:"95 000 دج / شهرياً",desc:"للتسريع: محتوى أكثر، ستوري غير محدودة، تقرير مفصّل ومكالمة شهرية."},
+ perso:{name:"مخصّصة",price:"حسب الطلب",desc:"احتياجاتك خاصة — لنبنِ معاً صيغة مخصصة، بدون التزام."}
+};
+var step=0,answers=[];
+function score(){
+ if(answers[3]===3)return "perso";
+ if(answers[3]===2||answers[1]===2||answers[2]===0)return "pro";
+ return "premium";
+}
+function render(){
+ var box=document.getElementById("quizBox");
+ if(step<QUESTIONS.length){
+  var Q=QUESTIONS[step],h='<div class="quiz-step">';
+  h+='<div class="quiz-top"><span>سؤال '+(step+1)+' / '+QUESTIONS.length+'</span><span>'+Math.round(step/QUESTIONS.length*100)+'%</span></div>';
+  h+='<div class="quiz-bar"><i style="width:'+(step/QUESTIONS.length*100)+'%"></i></div>';
+  h+='<h2 class="quiz-q">'+Q.q+'</h2><div class="quiz-opts">';
+  Q.o.forEach(function(opt,i){h+='<button class="quiz-opt" data-i="'+i+'">'+opt+'</button>'});
+  h+="</div>";
+  if(step>0)h+='<button class="quiz-back" id="qback">← رجوع</button>';
+  box.innerHTML=h;
+  box.querySelectorAll(".quiz-opt").forEach(function(b){b.addEventListener("click",function(){answers[step]=+b.dataset.i;step++;render()})});
+  var back=document.getElementById("qback");
+  if(back)back.addEventListener("click",function(){step--;render()});
+ }else{
+  var R=RESULTS[score()];
+  var wa="https://wa.me/213672645825?text="+encodeURIComponent("مرحبا أدفورتكس! قمت بالاختبار : باقة "+R.name+" تناسبني.");
+  var h='<div class="quiz-step quiz-result">';
+  h+='<div class="quiz-top" style="justify-content:center"><span>نتيجتك</span></div>';
+  h+='<div class="quiz-bar"><i style="width:100%"></i></div>';
+  h+='<span class="eyebrow">موصى به لك</span>';
+  h+='<h2 class="quiz-q">باقة '+R.name+' هي الأنسب لك.</h2>';
+  h+='<div class="r-price">'+R.price+'</div>';
+  h+='<p class="r-desc">'+R.desc+'</p>';
+  h+='<div class="r-ctas"><a class="btn btn-wa" id="qwa" target="_blank" rel="noopener" href="'+wa+'">اختر '+R.name+' على واتساب</a>';
+  h+='<a class="btn btn-ghost" href="packs-ar.html">شاهد كل الباقات</a></div>';
+  h+='<div style="margin-top:20px"><a href="booking-ar.html" style="color:var(--muted);font-size:14.5px">تفضل تتكلم معنا؟ <u>احجز مكالمة مجانية →</u></a></div>';
+  h+='<div><button class="quiz-back" id="qrestart">↺ إعادة الاختبار</button></div>';
+  box.innerHTML=h;
+  document.getElementById("qrestart").addEventListener("click",function(){step=0;answers=[];render()});
+  var qwa=document.getElementById("qwa");
+  if(qwa)qwa.addEventListener("click",function(){
+    try{
+      var ans={};
+      QUESTIONS.forEach(function(Q,i){if(answers[i]!==undefined)ans[Q.q]=Q.o[answers[i]];});
+      if(window.saveLead)saveLead("quiz",{pack:R.name,payload:{answers:ans,result:R.name}});
+    }catch(e){}
+  });
+ }
+}
+render();
+})();
+</script>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="logo" href="index-ar.html"><img src="assets/logo.png" alt="أدفورتكس — وكالة التسويق عبر شبكات التواصل"></a>
+        <p>وكالة تسويق رقمي في الجزائر. نحوّل حضورك على الإنترنت إلى زبائن حقيقيين.</p>
+      </div>
+      <div class="foot-links">
+        <div><h4>روابط</h4><a href="index-ar.html">الرئيسية</a><a href="index-ar.html#services">خدماتنا</a><a href="index-ar.html#realisations">أعمالنا</a><a href="index-ar.html#methode">منهجيتنا</a><a href="packs-ar.html">الباقات</a></div>
+        <div><h4>اتصل بنا</h4><a href="https://wa.me/213672645825" target="_blank" rel="noopener">واتساب</a><a href="tel:+213672645825">0672 64 58 25</a><a href="#contact">عرض سعر مجاني</a></div>
+        <div><h4>تابعنا</h4><a href="https://www.instagram.com/advortex.off" target="_blank" rel="noopener">إنستغرام</a><a href="https://www.facebook.com/profile.php?id=61590857516901" target="_blank" rel="noopener">فيسبوك</a></div>
+      </div>
+    </div>
+    <div class="copy"><span>© 2026 أدفورتكس — جميع الحقوق محفوظة.</span><span>الجزائر العاصمة، الجزائر</span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var nav=document.getElementById('nav');
+  addEventListener('scroll',function(){nav.classList.toggle('scrolled',scrollY>30)},{passive:true});
+  nav.classList.toggle('scrolled',scrollY>30);
+  var burger=document.getElementById('burger'),mmenu=document.getElementById('mmenu');
+  burger.addEventListener('click',function(){mmenu.classList.toggle('show')});
+  mmenu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mmenu.classList.remove('show')})});
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+  document.getElementById('leadForm').addEventListener('submit',function(e){
+    e.preventDefault();
+    var f=e.target;
+    var txt='مرحبا أدفورتكس!%0A%0A'
+      +'الاسم : '+encodeURIComponent(f.nom.value)+'%0A'
+      +'التجارة : '+encodeURIComponent(f.business.value)+'%0A'
+      +'الباقة : '+encodeURIComponent(f.pack.value)+'%0A'
+      +'الرسالة : '+encodeURIComponent(f.message.value||'-');
+    open('https://wa.me/213672645825?text='+txt,'_blank');
+  });
+})();
+</script>
+<a class="wa-float" href="https://wa.me/213672645825?text=Bonjour%20Advortex%20!%20Je%20veux%20discuter%20de%20mon%20projet." target="_blank" rel="noopener" aria-label="Discuter على واتساب">
+<svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+</a>
+
+<div class="sticky-cta">
+  <a class="sc-btn sc-wa" href="https://wa.me/213672645825?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%A3%D8%AF%D9%81%D9%88%D8%B1%D8%AA%D9%83%D8%B3%21%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%AA%D8%AF%D9%82%D9%8A%D9%82%20%D8%A7%D9%84%D9%85%D8%AC%D8%A7%D9%86%D9%8A%20%D9%84%D8%AD%D8%B3%D8%A7%D8%A8%D9%8A%20%D8%B9%D9%84%D9%89%20%D8%A5%D9%86%D8%B3%D8%AA%D8%BA%D8%B1%D8%A7%D9%85." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5s.8 1.9.8 2c.1.1.1.3 0 .5-.3.6-.7.9-.5 1.2.7 1.2 1.6 2 2.8 2.7.3.2.5.1.7-.1l.8-.9c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.4 0 .1 0 .7-.5 1.1z"/></svg>تدقيق مجاني</a>
+  <a class="sc-btn sc-call" href="tel:+213672645825"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg>اتصل</a>
+</div>
+
+<button id="chatFab" aria-label="افتح المحادثة"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg><span id="chatDot"></span></button>
+<div id="chatTeaser">👋 عندك سؤال على خدماتنا؟</div>
+<div id="chatPanel" role="dialog" aria-label="افتح المحادثة">
+  <div class="cp-head"><img src="assets/logo-mark.png" alt="Advortex"><div><b>مساعد أدفورتكس</b><span><i></i>متصل</span></div><button id="chatClose" aria-label="×">×</button></div>
+  <div class="cp-body" id="chatBody"></div>
+  <div class="cp-chips" id="chatChips"></div>
+  <div class="cp-input"><input id="chatText" placeholder="اكتب رسالتك..." maxlength="300" autocomplete="off"><button id="chatSend" aria-label="إرسال"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button></div>
+</div>
+
+<script>
+(function(){
+var WA="https://wa.me/213672645825";
+var S={"greeting": "\u0633\u0644\u0627\u0645 \ud83d\udc4b \u0645\u0631\u062d\u0628\u0627 \u0628\u064a\u0643 \u0641\u064a <b>Advortex</b> ! \u0646\u0639\u0631\u0641 \u0643\u0644\u0634 \u0639\u0644\u0649 \u0627\u0644\u0645\u0648\u0642\u0639 : <b>\u0627\u0644\u0623\u0633\u0639\u0627\u0631</b>\u060c <b>\u0627\u0644\u0628\u0627\u0642\u0627\u062a</b>\u060c <b>\u0627\u0644\u062a\u062f\u0642\u064a\u0642 \u0627\u0644\u0645\u062c\u0627\u0646\u064a</b>\u060c <b>\u0627\u0644\u062e\u062f\u0645\u0627\u062a</b>\u2026 \u0627\u0637\u0631\u062d \u0633\u0624\u0627\u0644\u0643 !", "chips": ["\ud83d\udcb0 \u0627\u0644\u0628\u0627\u0642\u0627\u062a", "\ud83d\udd0d \u062a\u062f\u0642\u064a\u0642 \u0645\u062c\u0627\u0646\u064a", "\ud83d\udcac \u0646\u0647\u062f\u0631 \u0645\u0639 \u0625\u0646\u0633\u0627\u0646"], "fallback": "\u0633\u0624\u0627\u0644 \u0645\u0645\u062a\u0627\u0632 ! \u0628\u0627\u0634 \u0646\u062c\u0627\u0648\u0628\u0643 \u0645\u0644\u064a\u062d\u060c \u0646\u0648\u0635\u0644\u0643 \u0644\u0644\u0641\u0631\u064a\u0642 \u0645\u0628\u0627\u0634\u0631\u0629 \ud83d\udc47", "fallbackPre": "\u0633\u0644\u0627\u0645 Advortex ! \u0633\u0624\u0627\u0644\u064a : ", "fallbackCta": "\u0643\u0645\u0644 \u0641\u064a \u0648\u0627\u062a\u0633\u0627\u0628"};
+var KB=[
+{"k": ["\u0633\u0644\u0627\u0645", "\u0635\u0628\u0627\u062d", "\u0645\u0633\u0627\u0621", "\u0627\u0647\u0644\u0627", "bonjour", "salut", "salam", "cc"], "r": "\u0633\u0644\u0627\u0645 ! \ud83d\udc4b \u0642\u0648\u0644\u064a : \u062a\u062d\u0628 \u0646\u0647\u062f\u0631\u0648\u0644\u0643 \u0639\u0644\u0649 <b>\u0627\u0644\u0623\u0633\u0639\u0627\u0631</b>\u060c <b>\u0627\u0644\u062a\u062f\u0642\u064a\u0642 \u0627\u0644\u0645\u062c\u0627\u0646\u064a</b>\u060c <b>\u0627\u0644\u062e\u062f\u0645\u0627\u062a</b>\u2026 \u0648\u0644\u0627 \u062d\u0627\u062c\u0629 \u0623\u062e\u0631\u0649\u061f"},
+{"k": ["\u0634\u0643\u0648\u0646", "\u0634\u0643\u0648\u0646 \u0646\u062a\u0648\u0645\u0627"], "r": "<b>Advortex</b>\u060c \u0648\u0643\u0627\u0644\u0629 \u062a\u0633\u0648\u064a\u0642 \u0631\u0642\u0645\u064a \u0641\u064a <b>\u0627\u0644\u062c\u0632\u0627\u0626\u0631</b> : \u0646\u062d\u0648\u0644\u0648 \u062d\u0636\u0648\u0631\u0643 \u0623\u0648\u0646\u0644\u0627\u064a\u0646 \u0644\u0632\u0628\u0627\u0626\u0646 \u062d\u0642\u064a\u0642\u064a\u064a\u0646."},
+{"k": ["\u0628\u0627\u0642\u0629", "\u0628\u0627\u0642\u0627\u062a", "\u0633\u0639\u0631", "\u0623\u0633\u0639\u0627\u0631", "\u0634\u062d\u0627\u0644", "prix", "pack", "tarif"], "r": "\u0627\u0644\u0628\u0627\u0642\u0627\u062a \u0627\u0644\u0634\u0647\u0631\u064a\u0629 : <b>Premium \u2014 70 000 \u062f\u062c/\u0634\u0647\u0631</b>\u060c <b>Pro \u2014 95 000 \u062f\u062c/\u0634\u0647\u0631</b> \u2b50 (\u0627\u0644\u0623\u0643\u062b\u0631 \u0627\u062e\u062a\u064a\u0627\u0631\u0627)\u060c <b>Personnalis\u00e9</b> \u2014 \u062d\u0633\u0628 \u0627\u0644\u0637\u0644\u0628. \u0643\u0644 \u0628\u0627\u0642\u0629 \u062a\u062a\u0636\u0628\u0637 \u0639\u0644\u0649 \u0645\u062c\u0627\u0644\u0643 \u0628\u0639\u062f \u0645\u0643\u0627\u0644\u0645\u0629 \u062a\u0639\u0627\u0631\u0641 \u0645\u062c\u0627\u0646\u064a\u0629.", "c": ["\u0634\u0648\u0641 \u0627\u0644\u0628\u0627\u0642\u0627\u062a", "packs-ar.html"]},
+{"k": ["premium", "70000"], "r": "<b>Premium \u2014 70 000 \u062f\u062c/\u0634\u0647\u0631</b> : 4 \u0631\u064a\u0644\u0632/\u0634\u0647\u0631\u060c 8 \u0645\u0646\u0634\u0648\u0631\u0627\u062a/\u0634\u0647\u0631\u060c 30 \u0633\u062a\u0648\u0631\u064a/\u0634\u0647\u0631\u060c \u0625\u062f\u0627\u0631\u0629 \u0643\u0627\u0645\u0644\u0629 \u0644\u0635\u0641\u062d\u0627\u062a\u0643\u060c \u0627\u0644\u0631\u062f \u0639\u0644\u0649 \u0627\u0644\u0631\u0633\u0627\u0626\u0644\u060c \u0627\u0644\u0646\u0634\u0631\u060c \u062d\u0645\u0644\u0627\u062a \u0645\u0645\u0648\u0644\u0629 (\u0627\u0644\u0645\u064a\u0632\u0627\u0646\u064a\u0629 \u0639\u0644\u064a\u0643)\u060c \u062a\u0642\u0648\u064a\u0645 \u0627\u0644\u0645\u062d\u062a\u0648\u0649.", "c": ["\u0646\u062e\u062a\u0627\u0631 Premium", "https://wa.me/213672645825?text=%D8%B3%D9%84%D8%A7%D9%85%20Advortex%20%21%20%D8%AD%D8%A8%D9%8A%D8%AA%20%D8%A8%D8%A7%D9%82%D8%A9%20Premium%20%2870%20000%20%D8%AF%D8%AC/%D8%B4%D9%87%D8%B1%29."]},
+{"k": ["pro", "95000"], "r": "<b>Pro \u2014 95 000 \u062f\u062c/\u0634\u0647\u0631</b> \u2b50 : 8 \u0631\u064a\u0644\u0632/\u0634\u0647\u0631\u060c 16 \u0645\u0646\u0634\u0648\u0631/\u0634\u0647\u0631\u060c \u0633\u062a\u0648\u0631\u064a \u063a\u064a\u0631 \u0645\u062d\u062f\u0648\u062f\u060c \u0625\u062f\u0627\u0631\u0629 \u0643\u0627\u0645\u0644\u0629\u060c \u0627\u0644\u0631\u062f \u0639\u0644\u0649 \u0627\u0644\u0631\u0633\u0627\u0626\u0644 \u0648\u0627\u0644\u062a\u0639\u0644\u064a\u0642\u0627\u062a\u060c \u0627\u0644\u0646\u0634\u0631\u060c \u062d\u0645\u0644\u0627\u062a \u0645\u0645\u0648\u0644\u0629 (\u0627\u0644\u0645\u064a\u0632\u0627\u0646\u064a\u0629 \u0639\u0644\u064a\u0643)\u060c \u062a\u0642\u0631\u064a\u0631 \u0645\u0641\u0635\u0644 + \u0645\u0643\u0627\u0644\u0645\u0629 \u0634\u0647\u0631\u064a\u0629.", "c": ["\u0646\u062e\u062a\u0627\u0631 Pro", "https://wa.me/213672645825?text=%D8%B3%D9%84%D8%A7%D9%85%20Advortex%20%21%20%D8%AD%D8%A8%D9%8A%D8%AA%20%D8%A8%D8%A7%D9%82%D8%A9%20Pro%20%2895%20000%20%D8%AF%D8%AC/%D8%B4%D9%87%D8%B1%29."]},
+{"k": ["personnalis\u00e9", "\u062d\u0633\u0628 \u0627\u0644\u0637\u0644\u0628", "\u0645\u062e\u0635\u0635", "\u0639\u0631\u0636 \u0633\u0639\u0631"], "r": "<b>Personnalis\u00e9 \u2014 \u062d\u0633\u0628 \u0627\u0644\u0637\u0644\u0628</b> : \u0627\u0646\u062a \u062a\u062e\u062a\u0627\u0631 (\u0631\u064a\u0644\u0632\u060c \u0645\u0646\u0634\u0648\u0631\u0627\u062a\u060c \u0633\u062a\u0648\u0631\u064a\u060c \u062a\u0635\u0648\u064a\u0631\u060c \u0625\u062f\u0627\u0631\u0629\u060c \u0625\u0639\u0644\u0627\u0646\u0627\u062a\u2026) \u0648\u062d\u0646\u0627 \u0646\u0628\u0646\u064a\u0648\u0644\u0643 \u0628\u0627\u0642\u0629 \u0639\u0644\u0649 \u0645\u0642\u0627\u0633\u0643 \u0628\u0639\u0631\u0636 \u0633\u0639\u0631 \u0648\u0627\u0636\u062d \u0648\u0628\u0644\u0627 \u0627\u0644\u062a\u0632\u0627\u0645.", "c": ["\u0627\u0637\u0644\u0628 \u0639\u0631\u0636 \u0633\u0639\u0631", "https://wa.me/213672645825?text=%D8%B3%D9%84%D8%A7%D9%85%20Advortex%20%21%20%D8%AD%D8%A8%D9%8A%D8%AA%20%D8%B9%D8%B1%D8%B6%20%D8%B3%D8%B9%D8%B1%20%D9%85%D8%AE%D8%B5%D8%B5."]},
+{"k": ["\u062a\u062f\u0642\u064a\u0642", "\u0645\u062c\u0627\u0646\u064a", "\u062a\u062d\u0644\u064a\u0644", "audit", "gratuit"], "r": "<b>\u062a\u062f\u0642\u064a\u0642 \u0625\u0646\u0633\u062a\u063a\u0631\u0627\u0645 \u0645\u062c\u0627\u0646\u064a</b> \u0648\u064a\u0648\u0635\u0644\u0643 \u0641\u064a <b>48 \u0633\u0627\u0639\u0629</b> : \u0627\u0644\u0628\u0627\u064a\u0648\u060c \u0627\u0644\u0645\u062d\u062a\u0648\u0649\u060c \u0627\u0644\u0633\u062a\u0648\u0631\u064a\u060c \u0627\u0644\u062a\u0641\u0627\u0639\u0644\u2026 \u062a\u0633\u062a\u0644\u0645 \u062a\u0642\u0631\u064a\u0631 \u0648\u0627\u0636\u062d \u0645\u0639 <b>5 \u062e\u0637\u0648\u0627\u062a \u0639\u0645\u0644\u064a\u0629</b> \u2014 \u062d\u062a\u0649 \u0644\u0648 \u0645\u0627 \u062e\u062f\u0645\u062a\u0634 \u0645\u0639\u0627\u0646\u0627. \u0628\u0644\u0627 \u0627\u0644\u062a\u0632\u0627\u0645.", "c": ["\u0646\u062d\u0628 \u0627\u0644\u062a\u062f\u0642\u064a\u0642 \u0627\u0644\u0645\u062c\u0627\u0646\u064a", "https://wa.me/213672645825?text=%D8%B3%D9%84%D8%A7%D9%85%20Advortex%20%21%20%D8%AD%D8%A8%D9%8A%D8%AA%20%D8%A7%D9%84%D8%AA%D8%AF%D9%82%D9%8A%D9%82%20%D8%A7%D9%84%D9%85%D8%AC%D8%A7%D9%86%D9%8A."]},
+{"k": ["30 \u064a\u0648\u0645", "\u0627\u0644\u0634\u0647\u0631 \u0627\u0644\u0623\u0648\u0644", "\u0623\u0633\u0628\u0648\u0639"], "r": "<b>\u0623\u0648\u0644 30 \u064a\u0648\u0645 \u0645\u0639\u0627\u0646\u0627</b> : \u0627\u0644\u0623\u0633\u0628\u0648\u0639 1 \u062a\u062f\u0642\u064a\u0642 + \u0627\u0633\u062a\u0631\u0627\u062a\u064a\u062c\u064a\u0629\u060c \u0627\u0644\u0623\u0633\u0628\u0648\u0639 2 \u062a\u0635\u0648\u064a\u0631 (\u0646\u062c\u064a\u0648 \u0646\u0635\u0648\u0631 \u0639\u0646\u062f\u0643) + \u062a\u062d\u0633\u064a\u0646 \u0635\u0641\u062d\u062a\u0643\u060c \u0627\u0644\u0623\u0633\u0628\u0648\u0639 3 \u0625\u0637\u0644\u0627\u0642\u060c \u0627\u0644\u0623\u0633\u0628\u0648\u0639 4 \u062d\u0635\u064a\u0644\u0629 + \u062e\u0637\u0629 \u0627\u0644\u0634\u0647\u0631 \u0627\u0644\u062c\u0627\u064a.", "c": ["\u0627\u062d\u062c\u0632 \u0645\u0643\u0627\u0644\u0645\u062a\u064a", "booking-ar.html"]},
+{"k": ["\u0645\u0646\u0647\u062c\u064a\u0629", "\u0637\u0631\u064a\u0642\u0629", "\u0643\u064a\u0641\u0627\u0634", "\u062e\u0637\u0648\u0627\u062a"], "r": "\u0627\u0644\u0645\u0646\u0647\u062c\u064a\u0629 \u0641\u064a 4 \u062e\u0637\u0648\u0627\u062a : <b>1. \u062a\u062f\u0642\u064a\u0642 \u0645\u062c\u0627\u0646\u064a</b>\u060c <b>2. \u0627\u0633\u062a\u0631\u0627\u062a\u064a\u062c\u064a\u0629 \u0639\u0644\u0649 \u0645\u0642\u0627\u0633\u0643</b>\u060c <b>3. \u0625\u0646\u062a\u0627\u062c</b> (\u062a\u0635\u0648\u064a\u0631 \u0648\u0645\u0648\u0646\u062a\u0627\u062c \u2014 \u062a\u0634\u0648\u0641 \u0643\u0644\u0634 \u0642\u0628\u0644 \u0627\u0644\u0646\u0634\u0631)\u060c <b>4. \u0646\u0634\u0631 \u0648\u0645\u062a\u0627\u0628\u0639\u0629</b> (\u062a\u0642\u0631\u064a\u0631 \u0634\u0647\u0631\u064a)."},
+{"k": ["\u0645\u062f\u0629", "\u0648\u0642\u062a", "\u0646\u062a\u0627\u0626\u062c", "\u0648\u0642\u062a\u0627\u0634", "delai"], "r": "\u0646\u0628\u062f\u0627\u0648 \u0641\u064a <b>7 \u0623\u064a\u0627\u0645</b>. \u0623\u0648\u0644 \u0627\u0644\u0646\u062a\u0627\u0626\u062c (\u0645\u0634\u0627\u0647\u062f\u0627\u062a\u060c \u062a\u0641\u0627\u0639\u0644) \u0645\u0646 <b>\u0627\u0644\u0634\u0647\u0631 \u0627\u0644\u0623\u0648\u0644</b>\u061b \u0648\u0627\u0644\u0646\u062a\u0627\u0626\u062c \u0627\u0644\u0642\u0648\u064a\u0629 \u0641\u064a <b>2-3 \u0623\u0634\u0647\u0631</b>."},
+{"k": ["\u062f\u064a\u0631\u0648", "\u062e\u062f\u0645\u0627\u062a", "\u062e\u062f\u0645\u0629", "\u062a\u0635\u0648\u064a\u0631", "\u0631\u064a\u0644\u0632", "\u0633\u062a\u0648\u0631\u064a", "\u0627\u0646\u0633\u062a\u063a\u0631\u0627\u0645", "\u062a\u064a\u0643 \u062a\u0648\u0643", "\u0641\u064a\u0633\u0628\u0648\u0643", "\u0627\u0639\u0644\u0627\u0646\u0627\u062a", "\u0625\u062f\u0627\u0631\u0629", "service"], "r": "\u0646\u062a\u0643\u0641\u0644\u0648 \u0628\u0643\u0644\u0634 : <b>\u0625\u062f\u0627\u0631\u0629 \u0643\u0627\u0645\u0644\u0629</b> \u0644\u0635\u0641\u062d\u0627\u062a\u0643\u060c <b>\u062a\u0635\u0648\u064a\u0631 \u0627\u062d\u062a\u0631\u0627\u0641\u064a \u0639\u0646\u062f\u0643</b>\u060c <b>\u0631\u064a\u0644\u0632/\u0645\u0646\u0634\u0648\u0631\u0627\u062a/\u0633\u062a\u0648\u0631\u064a</b>\u060c <b>\u0627\u0633\u062a\u0631\u0627\u062a\u064a\u062c\u064a\u0629 \u0645\u062d\u062a\u0648\u0649</b>\u060c <b>\u0625\u0639\u0644\u0627\u0646\u0627\u062a \u0645\u064a\u062a\u0627</b>\u060c <b>\u0627\u0644\u0631\u062f \u0639\u0644\u0649 \u0627\u0644\u0631\u0633\u0627\u0626\u0644 7/7</b>."},
+{"k": ["\u0645\u062c\u0627\u0644", "\u0645\u0637\u0639\u0645", "\u0635\u0627\u0644\u0648\u0646", "\u0645\u062a\u062c\u0631", "\u0642\u0637\u0627\u0639"], "r": "\u0627\u0644\u062a\u062e\u0635\u0635 \u062a\u0627\u0639\u0646\u0627 : <b>\u0645\u0637\u0627\u0639\u0645\u060c \u0645\u0642\u0627\u0647\u064a\u060c \u0635\u0627\u0644\u0648\u0646\u0627\u062a \u062a\u062c\u0645\u064a\u0644\u060c \u0645\u062a\u0627\u062c\u0631 \u0648\u0634\u0631\u0643\u0627\u062a \u0645\u062d\u0644\u064a\u0629</b>. \u0625\u0630\u0627 \u062a\u062c\u0627\u0631\u062a\u0643 \u062a\u062d\u062a\u0627\u062c \u0627\u0644\u0638\u0647\u0648\u0631 \u0648\u0627\u0644\u0632\u0628\u0627\u0626\u0646\u060c \u0646\u0647\u062f\u0631 \ud83d\udc47", "c": ["\u0646\u0647\u062f\u0631 \u0641\u064a \u0648\u0627\u062a\u0633\u0627\u0628", "https://wa.me/213672645825?text=%D8%B3%D9%84%D8%A7%D9%85%20Advortex%20%21%20%D8%AD%D8%A8%D9%8A%D8%AA%20%D9%86%D9%87%D8%AF%D8%B1%20%D8%B9%D9%84%D9%89%20%D8%A7%D9%84%D8%A8%D8%B2%D9%86%D8%B3%20%D8%AA%D8%A7%D8%B9%D9%8A."]},
+{"k": ["\u0646\u0628\u0639\u062a", "\u0646\u0635\u0648\u0631", "\u0645\u062d\u062a\u0648\u0649"], "r": "\u0644\u0627 ! \u062d\u0646\u0627 \u0646\u062a\u0643\u0641\u0644\u0648 <b>\u0628\u0643\u0644\u0634</b> : \u0627\u0644\u0623\u0641\u0643\u0627\u0631\u060c \u0627\u0644\u062a\u0635\u0648\u064a\u0631 \u0639\u0646\u062f\u0643\u060c \u0627\u0644\u0645\u0648\u0646\u062a\u0627\u062c\u060c \u0627\u0644\u0646\u0635\u0648\u0635\u060c \u0627\u0644\u0646\u0634\u0631. \u0627\u0646\u062a \u063a\u064a\u0631 \u062a\u0634\u0648\u0641 \u0648\u062a\u0648\u0627\u0641\u0642 \u0642\u0628\u0644 \u0645\u0627 \u064a\u062a\u0646\u0634\u0631."},
+{"k": ["\u0627\u0644\u062a\u0632\u0627\u0645", "\u0639\u0642\u062f", "\u0646\u062d\u0628\u0633", "\u0625\u0644\u063a\u0627\u0621"], "r": "\u0627\u0644\u0635\u064a\u063a <b>\u0634\u0647\u0631\u064a\u0629 \u0648\u0628\u0644\u0627 \u0627\u0644\u062a\u0632\u0627\u0645</b> \u0637\u0648\u064a\u0644 \u2014 \u063a\u064a\u0631 \u0639\u0644\u0645\u0646\u0627 \u0642\u0628\u0644. \u0646\u062d\u0628\u0648 \u0646\u0634\u062f\u0648\u0643 \u0628\u0627\u0644\u0646\u062a\u0627\u0626\u062c\u060c \u0645\u0627\u0634\u064a \u0628\u0627\u0644\u0639\u0642\u062f."},
+{"k": ["\u0648\u064a\u0646", "\u0627\u062a\u0635\u0627\u0644", "\u0648\u0627\u062a\u0633\u0627\u0628", "\u0647\u0627\u062a\u0641", "\u0631\u0642\u0645", "\u0639\u0646\u0648\u0627\u0646", "\u062c\u0632\u0627\u0626\u0631", "\u0627\u0646\u0633\u062a\u063a\u0631\u0627\u0645", "\u0641\u064a\u0633\u0628\u0648\u0643", "contact"], "r": "\ud83d\udccd <b>\u0627\u0644\u062c\u0632\u0627\u0626\u0631</b> \u2014 \u0648\u0627\u062a\u0633\u0627\u0628/\u0647\u0627\u062a\u0641 : <b>0672 64 58 25</b>\u060c \u0625\u0646\u0633\u062a\u063a\u0631\u0627\u0645 : <b>@advortex.off</b>\u060c \u0641\u064a\u0633\u0628\u0648\u0643 : Advortex. \u0623\u0648\u0644 \u0645\u0643\u0627\u0644\u0645\u0629 \u062a\u0639\u0627\u0631\u0641 \u0645\u062c\u0627\u0646\u064a\u0629.", "c": ["\u0627\u0628\u062f\u0627 \u0641\u064a \u0648\u0627\u062a\u0633\u0627\u0628", "https://wa.me/213672645825?text=%D8%B3%D9%84%D8%A7%D9%85%20Advortex%20%21"]},
+{"k": ["\u0645\u0648\u0639\u062f", "\u0645\u0643\u0627\u0644\u0645\u0629", "\u062d\u062c\u0632", "rdv", "appel"], "r": "\u0627\u062d\u062c\u0632 <b>\u0645\u0643\u0627\u0644\u0645\u0629 \u0627\u0644\u062a\u0639\u0627\u0631\u0641 \u0627\u0644\u0645\u062c\u0627\u0646\u064a\u0629</b> \u0645\u0646 \u0647\u0646\u0627 \u0645\u0628\u0627\u0634\u0631\u0629 \ud83d\udc47", "c": ["\u0627\u062d\u062c\u0632 \u0645\u0643\u0627\u0644\u0645\u062a\u064a", "booking-ar.html"]},
+{"k": ["\u0627\u062e\u062a\u0628\u0627\u0631", "quiz", "\u0648\u0627\u0634 \u0646\u062e\u062a\u0627\u0631"], "r": "\u0645\u062d\u062a\u0627\u0631\u061f <b>\u0627\u0644\u0627\u062e\u062a\u0628\u0627\u0631</b> \u064a\u0644\u0642\u0649 \u0627\u0644\u0628\u0627\u0642\u0629 \u0627\u0644\u0645\u062b\u0627\u0644\u064a\u0629 \u0644\u064a\u0643 \u0641\u064a 4 \u0623\u0633\u0626\u0644\u0629 \ud83d\udc47", "c": ["\u062f\u064a\u0631 \u0627\u0644\u0627\u062e\u062a\u0628\u0627\u0631", "quiz-ar.html"]},
+{"k": ["\u062d\u0627\u0633\u0628\u0629", "\u062e\u0633\u0627\u0631\u0629", "\u0634\u062d\u0627\u0644 \u0646\u062e\u0633\u0631"], "r": "<b>\u0634\u062d\u0627\u0644 \u0631\u0627\u0643 \u062a\u062e\u0633\u0631 \u0643\u0644 \u0634\u0647\u0631\u061f</b> \u0627\u062d\u0633\u0628 \u0641\u064a 10 \u062b\u0648\u0627\u0646\u064a \ud83d\udc47", "c": ["\u0627\u062d\u0633\u0628 \u062e\u0633\u0627\u0631\u062a\u064a", "calculateur-ar.html"]},
+{"k": ["\u0645\u0642\u0627\u0631\u0646\u0629", "\u0641\u0631\u0642", "\u0639\u0644\u0627\u0634 \u0627\u0646\u062a\u0648\u0645\u0627", "\u0641\u0631\u064a\u0644\u0627\u0646\u0633\u0631"], "r": "<b>Advortex \u0636\u062f \u0648\u062d\u062f\u0643 \u0636\u062f \u0641\u0631\u064a\u0644\u0627\u0646\u0633\u0631</b> : \u062a\u0635\u0648\u064a\u0631 \u0627\u062d\u062a\u0631\u0627\u0641\u064a \u0639\u0646\u062f\u0643 \u2713\u060c \u0627\u0633\u062a\u0631\u0627\u062a\u064a\u062c\u064a\u0629 \u2713\u060c \u0646\u0634\u0631 \u0645\u0646\u062a\u0638\u0645 \u2713\u060c \u0631\u062f \u0639\u0644\u0649 \u0627\u0644\u0631\u0633\u0627\u0626\u0644 7/7 \u2713\u060c \u062a\u0642\u0631\u064a\u0631 \u0634\u0647\u0631\u064a \u2713 \u2014 <b>\u0628\u0628\u0627\u0642\u0629 \u062b\u0627\u0628\u062a\u0629 \u0641\u064a \u0627\u0644\u0634\u0647\u0631</b>\u060c \u0623\u0631\u062e\u0635 \u0645\u0646 \u0634\u0647\u0631\u064a\u0629 \u0645\u0648\u0638\u0641."},
+{"k": ["\u0623\u0639\u0645\u0627\u0644", "\u0645\u0639\u0631\u0636", "\u0623\u0645\u062b\u0644\u0629", "\u0634\u0648\u0641"], "r": "<b>\u0645\u0627 \u0646\u0648\u0639\u062f\u0648\u0634\u060c \u0646\u0648\u0631\u064a\u0648</b> : \u062a\u0635\u0648\u064a\u0631 \u0639\u0646\u062f\u0643 \u0628\u0641\u0631\u064a\u0642\u0646\u0627 \u0648\u0645\u0639\u062f\u0627\u062a\u0646\u0627\u060c \u0645\u0648\u0646\u062a\u0627\u062c \u0627\u062d\u062a\u0631\u0627\u0641\u064a\u060c \u0648\u062a\u0634\u0648\u0641 \u0643\u0644\u0634 \u0642\u0628\u0644 \u0627\u0644\u0646\u0634\u0631."},
+{"k": ["\u0632\u0628\u0627\u0626\u0646", "\u0639\u0645\u0644\u0627\u0621", "\u0645\u0627\u0631\u0643\u0627\u062a", "\u0634\u0643\u0648\u0646"], "r": "\u0645\u0627\u0631\u0643\u0627\u062a \u062a\u0645\u0634\u064a \u0645\u0639 Advortex : \u0645\u0637\u0627\u0639\u0645 (Fast Burger, Yaz Eat\u2026)\u060c Kachtoutat Essaada\u060c RestoPilot\u060c MerchByDz\u060c \u0635\u0627\u0644\u0648\u0646\u0627\u062a \u062a\u062c\u0645\u064a\u0644\u2026 \u062a\u0644\u0642\u0627\u0647\u0645 \u0641\u064a \u0642\u0633\u0645 \u00ab \u0639\u0645\u0644\u0627\u0624\u0646\u0627 \u00bb."},
+{"k": ["\u0645\u062f\u0648\u0646\u0629", "\u0645\u0642\u0627\u0644\u0627\u062a", "\u0646\u0635\u0627\u0626\u062d"], "r": "\u0646\u0635\u0627\u0626\u062d \u0644\u0644\u064a \u064a\u062d\u0628 \u064a\u0643\u0628\u0631 : <b>\u0634\u062d\u0627\u0644 \u064a\u0643\u0644\u0641 \u0643\u0648\u0645\u064a\u0648\u0646\u064a\u062a\u064a \u0645\u0627\u0646\u062c\u0631 \u0641\u064a \u0627\u0644\u062c\u0632\u0627\u0626\u0631</b>\u060c <b>5 \u0623\u062e\u0637\u0627\u0621 \u062a\u0642\u062a\u0644 \u062a\u062c\u0627\u0631\u062a\u0643 \u0641\u064a \u0627\u0646\u0633\u062a\u063a\u0631\u0627\u0645</b>\u060c <b>\u0631\u064a\u0644\u0632 \u0648\u0644\u0627 \u0645\u0646\u0634\u0648\u0631\u0627\u062a</b>\u2026", "c": ["\u0627\u0642\u0631\u0627 \u0627\u0644\u0646\u0635\u0627\u0626\u062d", "index-ar.html#conseils"]},
+{"k": ["\u0641\u0631\u0646\u0633\u064a\u0629", "fran\u00e7ais", "langue"], "r": "\u0627\u0644\u0645\u0648\u0642\u0639 \u0643\u0627\u064a\u0646 \u062a\u0627\u0646\u064a \u0628\u0627\u0644\u0641\u0631\u0646\u0633\u064a\u0629 \ud83d\udc47", "c": ["Version fran\u00e7aise", "lang:fr"]},{"k": ["\u0627\u0646\u062c\u0644\u064a\u0632\u064a", "english"], "r": "\u0627\u0644\u0645\u0648\u0642\u0639 \u0645\u062a\u0648\u0641\u0631 \u0623\u064a\u0636\u0627\u064b \u0628\u0627\u0644\u0625\u0646\u062c\u0644\u064a\u0632\u064a\u0629 \ud83d\udc47", "c": ["English version", "lang:en"]},
+{"k": ["\u0634\u0643\u0631\u0627", "\u0645\u064a\u0631\u0633\u064a", "merci", "\u0635\u062d\u064a\u062a"], "r": "\u0627\u0644\u0639\u0641\u0648 ! \ud83d\ude0a \u0633\u0624\u0627\u0644 \u0622\u062e\u0631\u061f"},
+{"k": ["\u0627\u0646\u0633\u0627\u0646", "\u0641\u0631\u064a\u0642", "\u0646\u0647\u062f\u0631", "\u0648\u0627\u062a\u0633\u0627\u0628"], "r": "\u0628\u0643\u0644 \u0633\u0631\u0648\u0631 ! \u0627\u0644\u0641\u0631\u064a\u0642 \u064a\u0631\u062f \u0639\u0644\u064a\u0643 \u0628\u0627\u0644\u062e\u0641 \u0641\u064a \u0648\u0627\u062a\u0633\u0627\u0628 \ud83d\udc47", "c": ["\u0646\u0647\u062f\u0631 \u0641\u064a \u0648\u0627\u062a\u0633\u0627\u0628", "https://wa.me/213672645825?text=%D8%B3%D9%84%D8%A7%D9%85%20Advortex%20%21%20%D8%B9%D9%86%D8%AF%D9%8A%20%D8%B3%D8%A4%D8%A7%D9%84."]}
+];
+var fab=document.getElementById('chatFab'),panel=document.getElementById('chatPanel'),
+    body=document.getElementById('chatBody'),chips=document.getElementById('chatChips'),
+    input=document.getElementById('chatText'),teaser=document.getElementById('chatTeaser'),
+    opened=false,greeted=false,chipsHidden=false;
+function esc(t){var d=document.createElement('div');d.textContent=t;return d.innerHTML}
+function norm(t){return ' '+t.toLowerCase()
+ .replace(/[\u00e0\u00e1\u00e2\u00e4]/g,'a').replace(/[\u00e9\u00e8\u00ea\u00eb]/g,'e')
+ .replace(/[\u00ee\u00ef]/g,'i').replace(/[\u00f4\u00f6]/g,'o').replace(/[\u00f9\u00fb\u00fc]/g,'u')
+ .replace(/\u00e7/g,'c').replace(/[^\u0061-\u007a\u0030-\u0039\u0600-\u06ff ]/g,' ')+' '}
+function addMsg(html,who){var d=document.createElement('div');d.className='cp-msg '+who;d.innerHTML=html;body.appendChild(d);body.scrollTop=body.scrollHeight;return d}
+function typing(on){var ex=body.querySelector('.cp-typing');if(ex)ex.remove();if(!on)return;
+ var d=document.createElement('div');d.className='cp-typing';d.innerHTML='<b></b><b></b><b></b>';
+ body.appendChild(d);body.scrollTop=body.scrollHeight}
+function langURL(u){if(u.indexOf('lang:')!==0)return u;var l=u.slice(5);var p=(location.pathname.split('/').pop()||'index.html');var b=p.replace(/-ar\\.html$/,'').replace(/-en\\.html$/,'').replace(/\\.html$/,'');return l==='ar'?b+'-ar.html':l==='en'?b+'-en.html':b+'.html'}
+function botSay(e){typing(true);setTimeout(function(){typing(false);var h=e.r;
+ if(e.c){h+='<br><a class="cp-cta" target="_blank" rel="noopener" href="'+langURL(e.c[1])+'">'+e.c[0]+'</a>'}
+ addMsg(h,'bot')},900+Math.random()*500)}
+function kbFind(t){t=norm(t);var best=null,bs=0;
+ for(var i=0;i<KB.length;i++){var e=KB[i],s=0;
+  for(var j=0;j<e.k.length;j++){var kw=e.k[j],n=kw.split(' ').length,idx=-1,c=0;
+   while((idx=t.indexOf(kw,idx+1))>-1){c++}
+   if(c)s+=c*(1+0.7*(n-1))}
+  if(s>bs){bs=s;best=e}}
+ return best}
+function hideChips(){if(chipsHidden)return;chipsHidden=true;chips.style.display='none'}
+function send(text){text=(text||'').trim();if(!text)return;hideChips();teaser.classList.remove('show');
+ addMsg(esc(text),'user');input.value='';
+ var e=kbFind(text);
+ if(e){botSay(e);return}
+ typing(true);setTimeout(function(){typing(false);
+  addMsg(S.fallback+'<br><a class="cp-cta" target="_blank" rel="noopener" href="'+WA+'?text='+encodeURIComponent(S.fallbackPre+text)+'">'+S.fallbackCta+'</a>','bot')},1000)}
+function renderChips(){chips.innerHTML='';S.chips.forEach(function(c){var b=document.createElement('button');
+ b.type='button';b.textContent=c;b.addEventListener('click',function(){send(c)});chips.appendChild(b)})}
+function openChat(){opened=true;panel.classList.add('open');document.body.classList.add('chat-open');
+ teaser.classList.remove('show');if(!greeted){greeted=true;renderChips();botSay({r:S.greeting})}
+ setTimeout(function(){input.focus()},350)}
+function closeChat(){panel.classList.remove('open');document.body.classList.remove('chat-open')}
+fab.addEventListener('click',function(){panel.classList.contains('open')?closeChat():openChat()});
+document.getElementById('chatClose').addEventListener('click',closeChat);
+document.getElementById('chatSend').addEventListener('click',function(){send(input.value)});
+input.addEventListener('keydown',function(e){if(e.key==='Enter')send(input.value)});
+teaser.addEventListener('click',openChat);
+setTimeout(function(){if(!opened)teaser.classList.add('show')},9000);
+setTimeout(function(){teaser.classList.remove('show')},24000);
+
+})();
+</script>
+
+  <script src="/assets/advortex-leads.js" defer></script>
+</body>
+</html>

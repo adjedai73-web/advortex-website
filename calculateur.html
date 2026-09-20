@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Combien vous perdez chaque mois ? — Advortex</title>
+<meta name="description" content="Calculez en 10 secondes combien votre business perd chaque mois sans marketing professionnel.">
+<meta property="og:title" content="Advortex — Agence Marketing Digital à Alger">
+<meta property="og:description" content="On transforme votre présence en ligne en clients réels. Facebook • Instagram • TikTok • Vidéo.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://advortex-agency.vercel.app/calculateur.html">
+<meta property="og:image" content="https://advortex-agency.vercel.app/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Advortex — Agence Marketing Digital à Alger">
+<meta name="twitter:description" content="On transforme votre présence en ligne en clients réels. Facebook • Instagram • TikTok • Vidéo.">
+<meta name="twitter:image" content="https://advortex-agency.vercel.app/assets/og-image.jpg">
+<link rel="icon" href="assets/logo-mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#060606; --bg2:#0c0c0c; --card:#111111; --line:#232323;
+  --text:#f5f5f5; --muted:#a8a8a8; --dim:#6e6e6e;
+  --white:#ffffff; --wa:#25d366;
+  --radius:18px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,.brand{font-family:'Montserrat',sans-serif}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+section{padding:96px 0;position:relative}
+.eyebrow{display:inline-block;font-size:12px;letter-spacing:3px;font-weight:600;color:var(--muted);text-transform:uppercase;margin-bottom:18px;border:1px solid var(--line);padding:8px 16px;border-radius:100px;background:rgba(255,255,255,.02)}
+h2{font-size:clamp(30px,4.5vw,52px);font-weight:800;line-height:1.12;letter-spacing:-.5px;margin-bottom:16px}
+.lead{color:var(--muted);font-size:17px;max-width:620px}
+.center{text-align:center}.center .lead{margin:0 auto}
+
+/* ---------- NAV ---------- */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+nav.scrolled{background:rgba(6,6,6,.82);backdrop-filter:blur(14px);border-color:var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:96px}
+.logo{display:flex;align-items:center}
+.logo img{height:54px;width:auto}
+footer .logo img{height:88px}
+.nav-links{display:flex;gap:30px;font-size:14.5px;color:var(--muted)}
+.nav-links a{transition:color .2s}.nav-links a:hover{color:var(--white)}
+.btn{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:15px;padding:14px 28px;border-radius:100px;border:1px solid transparent;cursor:pointer;transition:transform .15s,box-shadow .2s,background .2s}
+.btn:active{transform:scale(.97)}
+.btn-white{background:var(--white);color:#0a0a0a}
+.btn-white:hover{box-shadow:0 8px 32px rgba(255,255,255,.22)}
+.btn-ghost{border-color:var(--line);color:var(--text);background:rgba(255,255,255,.02)}
+.btn-ghost:hover{border-color:#555}
+.btn-wa{background:var(--wa);color:#062b16}
+.btn-wa:hover{box-shadow:0 8px 32px rgba(37,211,102,.35)}
+.btn-sm{padding:11px 22px;font-size:14px}
+.burger{display:none;background:none;border:0;cursor:pointer;flex-direction:column;gap:5px;padding:8px}
+.burger span{width:24px;height:2px;background:#fff;border-radius:2px;transition:.25s}
+.mobile-menu{display:none;flex-direction:column;gap:4px;padding:14px 22px 22px;background:rgba(6,6,6,.96);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.mobile-menu a{padding:12px 4px;font-size:16px;color:var(--muted);border-bottom:1px solid #161616}
+.mobile-menu a:last-child{border:0}
+
+/* ---------- HERO ---------- */
+.hero{min-height:100svh;display:flex;align-items:center;padding:150px 0 80px;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(700px 380px at 12% 18%,rgba(255,255,255,.07),transparent 60%),
+  radial-gradient(800px 420px at 88% 82%,rgba(255,255,255,.05),transparent 60%);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center;width:100%}
+.hero h1{font-size:clamp(38px,6vw,72px);font-weight:800;line-height:1.05;letter-spacing:-1.5px;margin:20px 0 22px}
+.hero h1 .stroke{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:600;color:#fff;-webkit-text-stroke:0}
+.hero p.sub{color:var(--muted);font-size:18px;max-width:520px;margin-bottom:34px}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px}
+.hero-tags{display:flex;flex-wrap:wrap;gap:10px}
+.hero-tags span{font-size:13px;color:var(--dim);border:1px solid var(--line);border-radius:100px;padding:7px 15px}
+.hero-visual{display:flex;justify-content:center;position:relative}
+.phone{width:min(300px,72vw);aspect-ratio:9/19.2;border-radius:44px;border:1px solid #333;background:#000;padding:12px;box-shadow:0 40px 100px rgba(0,0,0,.7),0 0 0 8px rgba(255,255,255,.03);position:relative;transform:rotate(3deg)}
+.phone video{width:100%;height:100%;object-fit:cover;border-radius:34px;display:block}
+.phone::after{content:"";position:absolute;top:22px;left:50%;transform:translateX(-50%);width:96px;height:24px;background:#000;border-radius:100px;border:1px solid #222}
+.hero-badge{position:absolute;bottom:34px;left:-30px;background:rgba(14,14,14,.9);border:1px solid var(--line);backdrop-filter:blur(10px);border-radius:16px;padding:14px 18px;font-size:13.5px;color:var(--muted);box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.hero-badge strong{display:block;color:#fff;font-size:16px;font-family:'Montserrat'}
+
+/* ---------- MARQUEE ---------- */
+.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:20px 0;overflow:hidden;white-space:nowrap;background:var(--bg2)}
+.marquee-track{display:inline-flex;gap:48px;animation:scroll 26s linear infinite;font-family:'Montserrat';font-weight:700;font-size:15px;letter-spacing:4px;color:var(--dim)}
+.marquee-track i{color:#fff;font-style:normal}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* ---------- SERVICES ---------- */
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:54px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:34px 28px;transition:transform .25s,border-color .25s}
+.card:hover{transform:translateY(-6px);border-color:#444}
+.card .icon{width:52px;height:52px;border-radius:14px;background:#fff;color:#0a0a0a;display:flex;align-items:center;justify-content:center;margin-bottom:22px}
+.card .icon svg{width:26px;height:26px}
+.card h3{font-size:19px;font-weight:700;margin-bottom:12px}
+.card p{color:var(--muted);font-size:14.5px}
+
+/* ---------- WORK ---------- */
+.work-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center;margin-top:54px}
+.work-copy p{color:var(--muted);margin-bottom:16px;font-size:16px}
+.work-copy ul{list-style:none;margin:26px 0 34px;display:grid;gap:14px}
+.work-copy li{display:flex;gap:12px;align-items:flex-start;color:var(--muted);font-size:15px}
+.work-copy li b{color:#fff;font-weight:600}
+.check{flex:none;width:22px;height:22px;border-radius:100px;background:#fff;color:#0a0a0a;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;margin-top:2px}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:60px}
+.g-item{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);position:relative;aspect-ratio:9/12;background:#111}
+.g-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.g-item:hover img{transform:scale(1.05)}
+.g-item span{position:absolute;bottom:0;left:0;right:0;padding:26px 18px 16px;font-family:'Montserrat';font-weight:700;font-size:15px;background:linear-gradient(transparent,rgba(0,0,0,.85))}
+.g-item video{width:100%;height:100%;object-fit:cover;display:block}
+.videos-grid .g-item{aspect-ratio:16/10}
+/* Bouton WhatsApp flottant */
+.wa-float{position:fixed;right:22px;bottom:22px;z-index:999;width:60px;height:60px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 26px rgba(37,211,102,.45);transition:transform .25s}
+.wa-float:hover{transform:scale(1.1)}
+.wa-float svg{width:32px;height:32px;fill:#fff}
+@media(max-width:640px){.wa-float{right:16px;bottom:16px;width:56px;height:56px}}
+
+/* ---------- STEPS ---------- */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:54px;counter-reset:step}
+.step{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:30px 26px;position:relative}
+.step::before{counter-increment:step;content:"0" counter(step);font-family:'Montserrat';font-weight:800;font-size:44px;color:transparent;-webkit-text-stroke:1px #555;display:block;margin-bottom:16px}
+.step h3{font-size:18px;margin-bottom:10px}
+.step p{color:var(--muted);font-size:14.5px}
+
+/* ---------- PACKS ---------- */
+.packs-wrap{position:relative}
+.packs-glow{position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:min(900px,90%);height:420px;background:radial-gradient(closest-side,rgba(255,255,255,.07),transparent 70%);pointer-events:none}
+.packs{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:60px;align-items:stretch;position:relative;z-index:1}
+.pack{background:linear-gradient(180deg,#0e0e11,#08080a);border:1px solid #222226;border-radius:26px;padding:44px 36px;display:flex;flex-direction:column;position:relative;transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease;overflow:hidden}
+.pack::after{content:"";position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent)}
+.pack:hover{transform:translateY(-10px);border-color:#3d3d44;box-shadow:0 34px 70px rgba(0,0,0,.55)}
+.pack.hot{border:1px solid transparent;background:linear-gradient(#0d0d10,#0d0d10) padding-box,linear-gradient(165deg,#ffffff 0%,#5a5a60 45%,#ffffff 100%) border-box;box-shadow:0 0 70px rgba(255,255,255,.10),0 34px 90px rgba(0,0,0,.65);transform:scale(1.045)}
+.pack.hot:hover{transform:scale(1.045) translateY(-10px)}
+.pack .tag{position:absolute;top:16px;left:50%;transform:translateX(-50%);background:#fff;color:#0a0a0a;font-size:11px;font-weight:800;letter-spacing:2px;padding:7px 20px;border-radius:100px;font-family:'Montserrat';box-shadow:0 6px 24px rgba(255,255,255,.25);white-space:nowrap}
+.pack.hot{padding-top:58px}
+.pack h3{font-family:'Montserrat';font-size:33px;font-weight:800;margin-bottom:2px;letter-spacing:.5px}
+.pack .for{color:var(--dim);font-size:14px;margin-bottom:24px}
+.pack ul{list-style:none;display:grid;gap:13px;margin-bottom:34px;flex:1}
+.pack li{position:relative;padding-left:36px;color:#c9c9ce;font-size:15px;align-items:flex-start;line-height:1.5}
+.pack li::before{content:"✓";position:absolute;left:0;top:1px;width:23px;height:23px;border-radius:50%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.22);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.pack .price{font-family:'Montserrat';font-weight:800;font-size:34px;margin:14px 0 8px;color:#fff;letter-spacing:.5px;line-height:1.15;text-shadow:0 2px 30px rgba(255,255,255,.15)}
+.pack .price span{font-weight:500;font-size:15px;color:var(--muted)}
+.pack .btn{margin-top:auto}
+@media(max-width:900px){.pack.hot{transform:none}.pack.hot:hover{transform:translateY(-10px)}}
+
+/* ---------- FAQ ---------- */
+.faq{max-width:760px;margin:50px auto 0;display:grid;gap:12px}
+.faq-item{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.faq-q{width:100%;background:none;border:0;color:#fff;font-family:'Montserrat';font-weight:600;font-size:16px;text-align:left;padding:20px 22px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.faq-q .plus{font-size:22px;font-weight:400;color:var(--dim);transition:transform .25s;flex:none}
+.faq-item.open .faq-q .plus{transform:rotate(45deg);color:#fff}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;color:var(--muted);font-size:15px}
+.faq-a p{padding:0 22px 22px}
+
+/* ---------- CONTACT ---------- */
+.contact-box{background:linear-gradient(180deg,#101010,#0a0a0a);border:1px solid var(--line);border-radius:28px;padding:clamp(36px,6vw,72px);display:grid;grid-template-columns:1fr 1fr;gap:50px;margin-top:54px;position:relative;overflow:hidden}
+.contact-box::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 300px at 50% 0%,rgba(255,255,255,.06),transparent 65%);pointer-events:none}
+.contact-info h2{margin-bottom:14px}
+.contact-rows{display:grid;gap:16px;margin:30px 0}
+.c-row{display:flex;align-items:center;gap:14px;color:var(--muted);font-size:15.5px}
+.c-row .icon{width:44px;height:44px;flex:none;border-radius:12px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.03)}
+.c-row .icon svg{width:20px;height:20px}
+.c-row b{color:#fff;font-weight:600}
+.form{display:grid;gap:14px;position:relative}
+.form input,.form textarea,.form select{background:#0d0d0d;border:1px solid var(--line);border-radius:12px;color:#fff;padding:15px 18px;font-size:15px;font-family:'Inter';width:100%;outline:none;transition:border-color .2s}
+.form input:focus,.form textarea:focus,.form select:focus{border-color:#666}
+.form textarea{resize:vertical;min-height:110px}
+.form label{font-size:13px;color:var(--dim);font-weight:600;letter-spacing:.5px}
+
+/* ---------- FOOTER ---------- */
+footer{border-top:1px solid var(--line);padding:54px 0 34px;background:var(--bg2)}
+.foot{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap;margin-bottom:36px}
+.foot p{color:var(--dim);font-size:14px;max-width:340px;margin-top:14px}
+.foot-links{display:flex;gap:60px;flex-wrap:wrap}
+.foot-links h4{font-family:'Montserrat';font-size:13px;letter-spacing:2px;color:var(--dim);margin-bottom:14px}
+.foot-links a{display:block;color:var(--muted);font-size:14.5px;padding:5px 0}
+.foot-links a:hover{color:#fff}
+.copy{border-top:1px solid #161616;padding-top:24px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--dim);font-size:13px}
+
+/* ---------- CHIFFRES ---------- */
+.stats-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:18px;margin-top:44px}
+.stat{text-align:center;padding:10px 4px}
+.stat .num{font-family:'Montserrat';font-weight:800;font-size:clamp(28px,3.2vw,40px);letter-spacing:-.5px;font-variant-numeric:tabular-nums}
+.stat .lbl{color:var(--dim);font-size:13px;margin-top:8px;line-height:1.45}
+@media(max-width:900px){.stats-grid{grid-template-columns:repeat(3,1fr);row-gap:30px}}
+@media(max-width:560px){.stats-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* ---------- TÉMOIGNAGES ---------- */
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px}
+.testi{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:32px 28px;display:flex;flex-direction:column;gap:18px;transition:transform .35s ease,border-color .35s ease}
+.testi:hover{transform:translateY(-6px);border-color:#3d3d3d}
+.testi .stars{color:#fff;font-size:15px;letter-spacing:4px}
+.testi blockquote{margin:0;color:var(--muted);font-size:15px;line-height:1.75}
+.testi-who{display:flex;align-items:center;gap:14px;margin-top:auto;padding-top:6px}
+.avatar{width:52px;height:52px;flex:none;border-radius:50%;background:#fff;color:#000;font-family:'Montserrat';font-weight:800;font-size:17px;display:flex;align-items:center;justify-content:center}
+.testi-who b{display:block;font-size:15px;font-weight:600}
+.testi-who span{color:var(--dim);font-size:13px}
+@media(max-width:900px){.testi-grid{grid-template-columns:1fr;max-width:560px;margin-left:auto;margin-right:auto}}
+
+/* ---------- REVEAL ---------- */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:960px){
+  .hero-grid{grid-template-columns:1fr;gap:50px}
+  .hero{padding-top:130px}
+  .hero-visual{order:-1}
+  .phone{width:min(250px,64vw)}
+  .hero-badge{left:0}
+  .grid4{grid-template-columns:repeat(2,1fr)}
+  .work-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .packs{grid-template-columns:1fr;max-width:480px;margin-left:auto;margin-right:auto}
+  .contact-box{grid-template-columns:1fr}
+  .nav-links,.nav-cta{display:none}
+  .burger{display:flex}
+  .mobile-menu.show{display:flex}
+  section{padding:72px 0}
+}
+@media(max-width:560px){
+  .grid4,.steps{grid-template-columns:1fr}
+  .gallery{grid-template-columns:1fr;max-width:340px;margin-left:auto;margin-right:auto}
+}
+</style>
+<style>
+.page-hero{padding:150px 0 8px}
+.page-hero h1{font-size:clamp(38px,5vw,58px);line-height:1.08;margin:0 0 16px;font-weight:800}
+.page-hero .sub{max-width:640px;color:var(--muted);font-size:17px;line-height:1.7}
+.nav-links a.active{color:var(--white);font-weight:600}
+</style>
+<style>
+.calc-box{max-width:680px;margin:0 auto;background:var(--bg2);border:1px solid var(--line);border-radius:24px;padding:44px}
+.calc-field{margin-bottom:30px}
+.calc-field label{display:flex;justify-content:space-between;align-items:baseline;font-size:15.5px;font-weight:600;margin-bottom:6px}
+.calc-field label .val{color:#fff;font-weight:800;font-size:17px;white-space:nowrap}
+.calc-field small{display:block;color:var(--muted);font-size:13px;margin-bottom:12px}
+input[type=range]{width:100%;-webkit-appearance:none;appearance:none;height:6px;border-radius:3px;background:rgba(255,255,255,.15);outline:none;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:26px;height:26px;border-radius:50%;background:#fff;border:none;box-shadow:0 0 0 6px rgba(255,255,255,.12);cursor:pointer}
+input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;background:#fff;border:none;box-shadow:0 0 0 6px rgba(255,255,255,.12);cursor:pointer}
+.calc-result{text-align:center;background:rgba(255,80,80,.06);border:1px solid rgba(255,107,107,.35);border-radius:20px;padding:34px 20px;margin:8px 0 26px}
+.calc-result .lbl{color:var(--muted);font-size:15px;margin-bottom:8px}
+.calc-result .big{font-size:clamp(38px,7vw,58px);font-weight:800;color:#ff7b7b;letter-spacing:-1px;line-height:1.1}
+.calc-result .per{color:var(--muted);font-size:15px;margin-top:8px}
+.calc-result .per b{color:#fff}
+.calc-punch{text-align:center;font-size:17px;font-weight:600;margin:0 0 26px}
+.calc-note{text-align:center;color:var(--muted);font-size:13.5px;margin:20px 0 0}
+@media(max-width:560px){.calc-box{padding:30px 22px}}
+</style>
+
+<style>
+.sticky-cta{position:fixed;bottom:calc(14px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);z-index:60;display:none;align-items:center;gap:6px;padding:7px;background:rgba(12,12,12,.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid #2b2b2b;border-radius:100px;box-shadow:0 12px 32px rgba(0,0,0,.55);max-width:calc(100vw - 28px)}
+@media(max-width:768px){.sticky-cta{display:flex}body{padding-bottom:100px}.wa-float{display:none !important}}
+.sc-btn{display:inline-flex;align-items:center;gap:7px;padding:10px 16px;border-radius:100px;font-weight:700;font-size:13px;text-decoration:none;font-family:'Montserrat',sans-serif;white-space:nowrap}
+.sc-btn svg{width:15px;height:15px;flex:none}
+.sc-wa{background:#fff;color:#0a0a0a}
+.sc-call{color:#e8e8e8;background:transparent;border:1px solid #3a3a3a}
+</style>
+<style>
+/* ===== Identite Advortex : loader, vortex, typo signature ===== */
+.vtx{display:block;animation:vtxspin 36s linear infinite}
+.vtx-rev{transform-box:fill-box;transform-origin:center;animation:vtxspinrev 24s linear infinite}
+@keyframes vtxspin{to{transform:rotate(360deg)}}
+@keyframes vtxspinrev{from{transform:rotate(120deg)}to{transform:rotate(-240deg)}}
+.hero-vtx{position:absolute;top:50%;right:-160px;transform:translateY(-50%);width:min(660px,95vw);opacity:.13;pointer-events:none;z-index:0}
+@media(max-width:768px){.hero-vtx{right:-230px;opacity:.1}}
+.vtx-div{display:flex;align-items:center;gap:16px;justify-content:center;padding:8px 0 0}
+.vtx-div::before,.vtx-div::after{content:"";height:1px;flex:1;max-width:420px;background:linear-gradient(90deg,transparent,#2b2b2b)}
+.vtx-div::after{background:linear-gradient(90deg,#2b2b2b,transparent)}
+.vtx-div .vtx{width:52px;height:52px;opacity:.55;flex:none}
+#loader{position:fixed;inset:0;background:#0a0a0a;z-index:400;display:flex;flex-direction:column;gap:20px;align-items:center;justify-content:center;transition:opacity .55s ease}
+#loader.done{opacity:0;pointer-events:none}
+#loader img{width:148px;height:auto}
+#loader .vtx{width:46px;height:46px;opacity:.75}
+.foot-giant{font-weight:800;font-size:clamp(60px,13.5vw,176px);line-height:.95;color:transparent;-webkit-text-stroke:1px #2b2b2b;text-align:center;letter-spacing:.03em;user-select:none;margin:6px 0 26px}
+.serif-ac{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:500}
+@media(prefers-reduced-motion:reduce){.vtx,.vtx-rev{animation:none}}
+</style>
+<style>
+/* ===== Assistant chat Advortex ===== */
+#chatFab{position:fixed;right:22px;bottom:22px;z-index:1000;width:60px;height:60px;border-radius:50%;background:#fff;color:#0a0a0a;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,.5);transition:transform .25s}
+#chatFab:hover{transform:scale(1.08)}
+#chatFab svg{width:28px;height:28px}
+#chatDot{position:absolute;top:1px;right:1px;width:14px;height:14px;border-radius:50%;background:#22c55e;border:3px solid #0a0a0a}
+#chatTeaser{position:fixed;right:94px;bottom:38px;z-index:1000;background:#fff;color:#0a0a0a;font-size:13.5px;font-weight:600;padding:10px 16px;border-radius:16px;border-bottom-right-radius:4px;box-shadow:0 8px 24px rgba(0,0,0,.4);opacity:0;transform:translateY(8px);pointer-events:none;transition:all .4s;max-width:240px;font-family:'Montserrat',sans-serif}
+#chatTeaser.show{opacity:1;transform:none;pointer-events:auto;cursor:pointer}
+#chatPanel{position:fixed;right:22px;bottom:96px;z-index:1001;width:min(380px,calc(100vw - 32px));height:min(540px,calc(100dvh - 220px));min-height:380px;background:#101010;border:1px solid #2b2b2b;border-radius:22px;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.65);opacity:0;transform:translateY(16px) scale(.98);pointer-events:none;transition:all .32s cubic-bezier(.2,.9,.3,1.15);font-family:'Montserrat',sans-serif}
+#chatPanel.open{opacity:1;transform:none;pointer-events:auto}
+body.chat-open .wa-float{opacity:0 !important;pointer-events:none !important}
+.cp-head{display:flex;align-items:center;gap:10px;padding:13px 14px;background:#161616;border-bottom:1px solid #242424}
+.cp-head img{width:36px;height:36px;object-fit:contain;flex:none}
+.cp-head b{display:block;font-size:14px;color:#fff}
+.cp-head span{font-size:11.5px;color:#4ade80;display:flex;align-items:center;gap:5px}
+.cp-head span i{width:7px;height:7px;border-radius:50%;background:#4ade80;display:inline-block}
+.cp-head button{margin-inline-start:auto;background:none;border:none;color:#888;font-size:24px;cursor:pointer;line-height:1;padding:0 2px}
+.cp-body{flex:1;overflow-y:auto;padding:16px 14px;display:flex;flex-direction:column;gap:8px}
+.cp-msg{max-width:86%;padding:9px 13px;border-radius:16px;font-size:13.5px;line-height:1.5;color:#f0f0f0;animation:cpIn .3s ease}
+.cp-msg.bot{align-self:flex-start;background:#1e1e1e;border-bottom-inline-start-radius:4px}
+.cp-msg.user{align-self:flex-end;background:#fff;color:#0a0a0a;border-bottom-inline-end-radius:4px}
+.cp-msg a.cp-cta{display:inline-block;margin-top:8px;background:#fff;color:#0a0a0a !important;font-weight:700;font-size:12.5px;padding:8px 14px;border-radius:100px;text-decoration:none}
+.cp-typing{align-self:flex-start;background:#1e1e1e;border-radius:16px;border-bottom-inline-start-radius:4px;padding:13px 16px;display:flex;gap:5px}
+.cp-typing b{width:7px;height:7px;border-radius:50%;background:#777;animation:cpB 1s infinite}
+.cp-typing b:nth-child(2){animation-delay:.15s}.cp-typing b:nth-child(3){animation-delay:.3s}
+.cp-chips{display:flex;gap:8px;padding:10px 14px;flex-wrap:wrap;border-top:1px solid #1e1e1e}
+.cp-chips button{background:#1b1b1b;border:1px solid #333;color:#fff;font-size:12.5px;font-weight:600;padding:8px 13px;border-radius:100px;cursor:pointer;font-family:inherit}
+.cp-chips button:hover{background:#2a2a2a}
+.cp-input{display:flex;gap:8px;padding:12px 14px;border-top:1px solid #242424;background:#141414}
+.cp-input input{flex:1;background:#1e1e1e;border:1px solid #2c2c2c;border-radius:100px;color:#fff;padding:10px 16px;font-size:13.5px;font-family:inherit;outline:none;min-width:0}
+.cp-input input:focus{border-color:#555}
+.cp-input button{width:42px;height:42px;flex:none;border-radius:50%;border:none;background:#fff;color:#0a0a0a;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.cp-input button svg{width:18px;height:18px}
+@media(min-width:769px){.wa-float{bottom:96px !important}}
+@media(max-width:768px){#chatFab{right:16px;bottom:100px;width:56px;height:56px}#chatPanel{right:16px;left:16px;width:auto;bottom:170px;height:min(500px,calc(100dvh - 280px));min-height:340px}#chatTeaser{right:84px;bottom:114px}}
+@keyframes cpIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@keyframes cpB{0%,100%{opacity:.3}50%{opacity:1}}
+</style>
+</head>
+</head>
+<body>
+<div id="loader" aria-hidden="true"><img src="assets/logo.png" alt="Advortex"><svg class="vtx" viewBox="0 0 400 400" fill="none" aria-hidden="true"><g stroke="#fff" stroke-width="1.4"><ellipse cx="200" cy="200" rx="182" ry="72" opacity=".55"/><ellipse cx="200" cy="200" rx="182" ry="72" opacity=".3" transform="rotate(60 200 200)"/><g class="vtx-rev"><ellipse cx="200" cy="200" rx="182" ry="72" opacity=".2"/></g><circle cx="200" cy="200" r="44" opacity=".4"/></g></svg></div>
+<script>(function(){var l=document.getElementById('loader');if(!l)return;var done=function(){l.classList.add('done');setTimeout(function(){l.remove()},700)};var t0=Date.now();var go=function(){setTimeout(done,Math.max(0,450-(Date.now()-t0)))};if(document.readyState==='complete')go();else window.addEventListener('load',go);setTimeout(done,3000);})();</script>
+
+
+<nav id="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="index.html"><img src="assets/logo.png" alt="Advortex — Social Media Marketing Agency"></a>
+    <div class="nav-links">
+      <a href="index.html">Accueil</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#realisations">Réalisations</a>
+      <a href="index.html#methode">Méthode</a>
+      <a href="packs.html" class="active">Packs</a>
+      <a href="quiz.html">Quiz</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="calculateur-ar.html" class="lang-sw">عربية</a><a href="calculateur-en.html" class="lang-sw">EN</a>
+    </div>
+    <a class="btn btn-white btn-sm nav-cta" href="#contact">Devis gratuit</a>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mmenu">
+    <a href="index.html">Accueil</a>
+    <a href="index.html#services">Services</a>
+    <a href="index.html#realisations">Réalisations</a>
+    <a href="index.html#methode">Méthode</a>
+    <a href="packs.html">Packs</a>
+    <a href="quiz.html">Quiz</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="calculateur-ar.html">عربية</a><a href="calculateur-en.html">EN</a>
+    <a href="#contact" style="color:#fff;font-weight:600">Devis gratuit →</a>
+  </div>
+</nav>
+
+<header class="page-hero" id="top">
+  <div class="wrap">
+    <span class="eyebrow rv">Calculateur</span>
+    <h1 class="rv">Combien vous perdez<br>chaque mois ?</h1>
+    <p class="sub rv">Bla marketing pro, floussek rahoum yrouhou l concurrent. 7sebha f 10 secondes.</p>
+  </div>
+</header>
+
+<section id="calculateur" style="padding-top:34px">
+  <div class="wrap">
+    <div class="calc-box rv">
+      <div class="calc-field">
+        <label>Clients potentiels par mois <span class="val" id="vClients">100</span></label>
+        <small>Des gens qui voient votre business mais n’achètent pas (encore).</small>
+        <input type="range" id="rClients" min="10" max="500" step="10" value="100">
+      </div>
+      <div class="calc-field">
+        <label>Panier moyen <span class="val" id="vPanier">5 000 DZD</span></label>
+        <small>Combien dépense un client en moyenne chez vous, en DZD.</small>
+        <input type="range" id="rPanier" min="1000" max="100000" step="1000" value="5000">
+      </div>
+      <div class="calc-field">
+        <label>Clients récupérables <span class="val" id="vTaux">15 %</span></label>
+        <small>Estimation prudente : avec du bon contenu, cette part peut devenir cliente.</small>
+        <input type="range" id="rTaux" min="5" max="30" step="1" value="15">
+      </div>
+      <div class="calc-result">
+        <div class="lbl">Vous perdez environ</div>
+        <div class="big" id="rBig">750 000 DZD</div>
+        <div class="per">par mois &mdash; soit <b id="rYear">9 000 000 DZD</b> par an</div>
+      </div>
+      <p class="calc-punch">Hadi machi khsara 3adiya &mdash; hadi floussek li rahi trouh l concurrent.</p>
+      <a class="btn btn-wa" id="calcGo" target="_blank" rel="noopener" href="#" style="width:100%;justify-content:center">Je veux récupérer cet argent</a>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:14px">
+        <a class="btn btn-ghost" href="quiz.html" style="font-size:14px;padding:12px 22px">Faire le quiz</a>
+        <a class="btn btn-ghost" href="booking.html" style="font-size:14px;padding:12px 22px">Réserver un appel gratuit</a>
+      </div>
+      <p class="calc-note">Estimation basée sur vos chiffres. Le vrai potentiel, on le calcule ensemble.</p>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+function fmt(n){return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g," ");}
+var rC=document.getElementById("rClients"),rP=document.getElementById("rPanier"),rT=document.getElementById("rTaux");
+function upd(){
+  var c=+rC.value,p=+rP.value,t=+rT.value;
+  document.getElementById("vClients").textContent=c;
+  document.getElementById("vPanier").textContent=fmt(p)+" DZD";
+  document.getElementById("vTaux").textContent=t+" %";
+  var mois=c*(t/100)*p, an=mois*12;
+  document.getElementById("rBig").textContent=fmt(mois)+" DZD";
+  document.getElementById("rYear").textContent=fmt(an)+" DZD";
+  var msg="Bonjour Advortex ! J’ai fait le calculateur : je perds environ "+fmt(mois)+" DZD par mois. Je veux récupérer cet argent !";
+  document.getElementById("calcGo").href="https://wa.me/213672645825?text="+encodeURIComponent(msg);
+}
+[rC,rP,rT].forEach(function(r){r.addEventListener("input",upd);});
+document.getElementById("calcGo").addEventListener("click",function(){
+  try{
+    if(!window.saveLead)return;
+    var c=+rC.value,p=+rP.value,t=+rT.value;
+    saveLead("calculator",{payload:{inputs:{clients:c,panier_moyen:p,taux_conversion:t},monthly_loss:Math.round(c*(t/100)*p),currency:"DZD"}});
+  }catch(e){}
+});
+upd();
+})();
+</script>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="logo" href="index.html"><img src="assets/logo.png" alt="Advortex — Social Media Marketing Agency"></a>
+        <p>Agence de marketing digital à Alger. On transforme votre présence en ligne en clients réels.</p>
+      </div>
+      <div class="foot-links">
+        <div><h4>NAVIGATION</h4><a href="index.html">Accueil</a><a href="index.html#services">Services</a><a href="index.html#realisations">Réalisations</a><a href="index.html#methode">Méthode</a><a href="packs.html">Packs</a></div>
+        <div><h4>CONTACT</h4><a href="https://wa.me/213672645825" target="_blank" rel="noopener">WhatsApp</a><a href="tel:+213672645825">0672 64 58 25</a><a href="#contact">Devis gratuit</a></div>
+        <div><h4>SUIVEZ-NOUS</h4><a href="https://www.instagram.com/advortex.off" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/profile.php?id=61590857516901" target="_blank" rel="noopener">Facebook</a></div>
+      </div>
+    </div>
+    <div class="copy"><span>© 2026 Advortex — Tous droits réservés.</span><span>Alger, Algérie</span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var nav=document.getElementById('nav');
+  addEventListener('scroll',function(){nav.classList.toggle('scrolled',scrollY>30)},{passive:true});
+  nav.classList.toggle('scrolled',scrollY>30);
+  var burger=document.getElementById('burger'),mmenu=document.getElementById('mmenu');
+  burger.addEventListener('click',function(){mmenu.classList.toggle('show')});
+  mmenu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mmenu.classList.remove('show')})});
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+  document.getElementById('leadForm').addEventListener('submit',function(e){
+    e.preventDefault();
+    var f=e.target;
+    var txt='Bonjour Advortex !%0A%0A'
+      +'Nom : '+encodeURIComponent(f.nom.value)+'%0A'
+      +'Business : '+encodeURIComponent(f.business.value)+'%0A'
+      +'Pack : '+encodeURIComponent(f.pack.value)+'%0A'
+      +'Message : '+encodeURIComponent(f.message.value||'-');
+    open('https://wa.me/213672645825?text='+txt,'_blank');
+  });
+})();
+</script>
+<a class="wa-float" href="https://wa.me/213672645825?text=Bonjour%20Advortex%20!%20Je%20veux%20discuter%20de%20mon%20projet." target="_blank" rel="noopener" aria-label="Discuter sur WhatsApp">
+<svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+</a>
+
+<div class="sticky-cta">
+  <a class="sc-btn sc-wa" href="https://wa.me/213672645825?text=Bonjour%20Advortex%20%21%20Je%20veux%20mon%20audit%20Instagram%20gratuit." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5s.8 1.9.8 2c.1.1.1.3 0 .5-.3.6-.7.9-.5 1.2.7 1.2 1.6 2 2.8 2.7.3.2.5.1.7-.1l.8-.9c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.4 0 .1 0 .7-.5 1.1z"/></svg>Audit gratuit</a>
+  <a class="sc-btn sc-call" href="tel:+213672645825"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg>Appeler</a>
+</div>
+
+<button id="chatFab" aria-label="Ouvrir le chat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg><span id="chatDot"></span></button>
+<div id="chatTeaser">👋 Une question sur nos services ?</div>
+<div id="chatPanel" role="dialog" aria-label="Ouvrir le chat">
+  <div class="cp-head"><img src="assets/logo-mark.png" alt="Advortex"><div><b>Assistant Advortex</b><span><i></i>En ligne</span></div><button id="chatClose" aria-label="×">×</button></div>
+  <div class="cp-body" id="chatBody"></div>
+  <div class="cp-chips" id="chatChips"></div>
+  <div class="cp-input"><input id="chatText" placeholder="Écrivez votre message..." maxlength="300" autocomplete="off"><button id="chatSend" aria-label="Envoyer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button></div>
+</div>
+
+<script>
+(function(){
+var WA="https://wa.me/213672645825";
+var S={"greeting": "Salam \ud83d\udc4b Bienvenue chez <b>Advortex</b> ! Je connais tout le site par c\u0153ur : <b>prix</b>, <b>packs</b>, <b>audit gratuit</b>, <b>services</b>, <b>d\u00e9lais</b>\u2026 Posez votre question !", "chips": ["\ud83d\udcb0 Les packs", "\ud83d\udd0d Audit gratuit", "\ud83d\udcac Parler \u00e0 un humain"], "fallback": "Hmm, je n'ai pas la r\u00e9ponse exacte\u2026 mais l'\u00e9quipe l'a ! Je vous la passe directement \ud83d\udc47", "fallbackPre": "Bonjour Advortex ! Ma question : ", "fallbackCta": "Continuer sur WhatsApp"};
+var KB=[
+{"k": ["bonjour", "salut", "salam", "hello", "cc", "azul", "bonsoir", "hey"], "r": "Salam ! \ud83d\udc4b Dites-moi : on parle <b>prix</b>, <b>audit gratuit</b>, <b>services</b>\u2026 ou autre chose ?"},
+{"k": ["chkoun", "qui etes", "c est qui", "presentez vous", "advortex c est quoi"], "r": "<b>Advortex</b>, agence de marketing digital \u00e0 <b>Alger</b> : on transforme votre pr\u00e9sence en ligne en clients r\u00e9els. Strat\u00e9gie, tournage pro, contenu, Meta Ads \u2014 on s'occupe de tout."},
+{"k": ["pack", "formule", "offre", "abonnement", "prix", "tarif", "combien", "coute", "price"], "r": "Nos packs mensuels : <b>Premium \u2014 70 000 DA/mois</b>, <b>Pro \u2014 95 000 DA/mois</b> \u2b50 (le plus choisi), <b>Personnalis\u00e9</b> \u2014 sur devis. Chaque pack est ajust\u00e9 \u00e0 votre secteur apr\u00e8s un appel d\u00e9couverte gratuit.", "c": ["Voir les packs", "packs.html"]},
+{"k": ["premium", "70 000", "70000", "70k"], "r": "<b>Premium \u2014 70 000 DA/mois</b> : 4 reels/mois, 8 posts/mois, 30 stories/mois, gestion compl\u00e8te de vos pages, r\u00e9ponses aux messages, publication du contenu, campagnes sponsoris\u00e9es (budget \u00e0 votre charge), calendrier de contenu.", "c": ["Choisir Premium", "https://wa.me/213672645825?text=Bonjour%20Advortex%20%21%20Je%20veux%20le%20pack%20Premium%20%2870%20000%20DA/mois%29."]},
+{"k": ["pro", "95 000", "95000", "95k", "plus choisi"], "r": "<b>Pro \u2014 95 000 DA/mois</b> \u2b50 : 8 reels/mois, 16 posts/mois, stories illimit\u00e9es, gestion compl\u00e8te des pages, r\u00e9ponses aux messages & commentaires, publication, campagnes sponsoris\u00e9es (budget \u00e0 votre charge), rapport d\u00e9taill\u00e9 + appel mensuel.", "c": ["Choisir Pro", "https://wa.me/213672645825?text=Bonjour%20Advortex%20%21%20Je%20veux%20le%20pack%20Pro%20%2895%20000%20DA/mois%29."]},
+{"k": ["personnalise", "sur mesure", "devis", "custom", "compose"], "r": "<b>Personnalis\u00e9 \u2014 sur devis</b> : vous composez (reels, posts, stories, tournages, gestion des pages, publicit\u00e9\u2026), on construit ensemble un pack sur mesure avec un devis clair et sans engagement.", "c": ["Demander un devis", "https://wa.me/213672645825?text=Bonjour%20Advortex%20%21%20Je%20veux%20un%20devis%20personnalis%C3%A9."]},
+{"k": ["audit", "gratuit", "analyse", "diagnostic"], "r": "L'<b>audit Instagram est gratuit</b> et livr\u00e9 sous <b>48h</b> : bio, contenu, stories, engagement\u2026 Vous recevez un rapport clair avec <b>5 actions concr\u00e8tes</b> \u00e0 appliquer \u2014 m\u00eame si vous ne travaillez pas avec nous. Sans engagement.", "c": ["Demander mon audit gratuit", "https://wa.me/213672645825?text=Bonjour%20Advortex%20%21%20Je%20veux%20mon%20audit%20Instagram%20gratuit."]},
+{"k": ["30 jours", "premier mois", "premier", "semaine", "demarrage", "onboarding"], "r": "<b>Vos 30 premiers jours</b> : <b>S1</b> audit + strat\u00e9gie (ligne \u00e9ditoriale, calendrier), <b>S2</b> tournage (on vient filmer) + optimisation de votre page, <b>S3</b> lancement (publication, stories quotidiennes, sponsoris\u00e9), <b>S4</b> bilan (rapport + plan du mois suivant).", "c": ["R\u00e9server un appel", "booking.html"]},
+{"k": ["methode", "processus", "fonctionne", "etapes", "deroule", "travailler ensemble"], "r": "Notre m\u00e9thode en 4 \u00e9tapes : <b>1. Audit gratuit</b> (pages, concurrents, march\u00e9), <b>2. Strat\u00e9gie sur mesure</b> (plan de contenu clair), <b>3. Production</b> (tournage, montage, design \u2014 vous validez tout avant publication), <b>4. Publication & suivi</b> (on publie, on r\u00e9pond \u00e0 votre communaut\u00e9, rapport mensuel)."},
+{"k": ["delai", "temps", "duree", "long", "vite", "quand", "resultat"], "r": "On d\u00e9marre sous <b>7 jours</b>. Les premiers effets (vues, engagement) arrivent d\u00e8s le <b>premier mois</b> ; pour des r\u00e9sultats solides \u2014 abonn\u00e9s qualifi\u00e9s, messages clients, ventes \u2014 comptez <b>2 \u00e0 3 mois</b> de travail r\u00e9gulier."},
+{"k": ["service", "proposez", "faites", "tournage", "shooting", "reel", "story", "stories", "contenu", "community", "instagram", "tiktok", "facebook", "ads", "publicite", "sponsorise", "montage", "dirou", "diro", "vous faites", "c quoi", "cest quoi", "c est quoi"], "r": "On s'occupe de tout : <b>gestion compl\u00e8te</b> de vos pages (FB/IG/TikTok), <b>tournage pro sur place</b>, <b>reels / posts / stories</b>, <b>strat\u00e9gie de contenu</b>, <b>Meta Ads cibl\u00e9es</b>, <b>r\u00e9ponses aux messages 7j/7</b>. Vous validez chaque contenu avant publication."},
+{"k": ["secteur", "restaurant", "salon", "boutique", "domaine", "metier", "specialite"], "r": "Notre sp\u00e9cialit\u00e9 : <b>restaurants, salons de th\u00e9, salons de beaut\u00e9, boutiques et entreprises locales</b>. Si votre business a besoin de visibilit\u00e9 et de clients, parlons-en \ud83d\udc47", "c": ["Discuter sur WhatsApp", "https://wa.me/213672645825?text=Bonjour%20Advortex%20%21%20Je%20veux%20discuter%20de%20mon%20business."]},
+{"k": ["fournir", "moi meme", "dois je", "envoyer", "donner"], "r": "Non ! On s'occupe de <b>tout</b> : id\u00e9es, tournage sur place, montage, textes, publication. Vous validez simplement chaque contenu avant qu'il soit publi\u00e9."},
+{"k": ["engagement", "arreter", "resilier", "contrat", "sans engagement", "quand je veux"], "r": "Nos formules sont <b>mensuelles et sans engagement</b> longue dur\u00e9e \u2014 un simple pr\u00e9avis suffit. On pr\u00e9f\u00e8re vous garder par nos r\u00e9sultats, pas par un contrat."},
+{"k": ["contact", "whatsapp", "telephone", "tel", "numero", "adresse", "alger", "instagram", "facebook", "joindre", "appeler", "localisation"], "r": "\ud83d\udccd <b>Alger, Alg\u00e9rie</b> \u2014 WhatsApp/T\u00e9l : <b>0672 64 58 25</b>, Instagram : <b>@advortex.off</b>, Facebook : Advortex. Le premier appel d\u00e9couverte est gratuit.", "c": ["D\u00e9marrer sur WhatsApp", "https://wa.me/213672645825?text=Bonjour%20Advortex%20%21"]},
+{"k": ["rendez vous", "rdv", "appel decouverte", "reserver", "booking"], "r": "R\u00e9servez votre <b>appel d\u00e9couverte gratuit</b> directement ici \ud83d\udc47", "c": ["R\u00e9server mon appel", "booking.html"]},
+{"k": ["quiz", "quel pack", "hesite", "choisir", "test"], "r": "Vous h\u00e9sitez ? Notre <b>quiz</b> trouve votre pack id\u00e9al en 4 questions \ud83d\udc47", "c": ["Faire le quiz", "quiz.html"]},
+{"k": ["calculateur", "perte", "perds", "tkhsser", "calculer"], "r": "<b>Ch7al rak tkhsser koul chhar ?</b> Calculez en 10 secondes ce que vous perdez sans marketing pro \ud83d\udc47", "c": ["Calculer ma perte", "calculateur.html"]},
+{"k": ["comparatif", "difference", "pourquoi vous", "mieux", "freelancer", "gerer seul", "concurrent"], "r": "<b>Advortex vs g\u00e9rer seul vs freelancer</b> : tournage pro sur place \u2713, strat\u00e9gie de contenu \u2713, publication r\u00e9guli\u00e8re \u2713, r\u00e9ponses aux messages 7j/7 \u2713, rapport mensuel \u2713 \u2014 pour un <b>pack fixe par mois</b>, moins cher qu'un salaire \u00e0 plein temps."},
+{"k": ["realisation", "portfolio", "exemple", "travail", "montrez", "voir"], "r": "<b>On ne promet pas, on montre.</b> Tournage sur place avec notre \u00e9quipe et notre mat\u00e9riel, montage pro (rythme, sous-titres, musique) \u2014 et vous validez tout avant publication."},
+{"k": ["client", "marque", "reference", "logo", "avec qui"], "r": "Des marques qui avancent avec Advortex : restaurants (Fast Burger, Yaz Eat\u2026), Kachtoutat Essaada, RestoPilot, MerchByDz, salons de beaut\u00e9\u2026 Retrouvez-les dans la section \u00ab Nos clients \u00bb."},
+{"k": ["blog", "conseil", "article", "astuce", "apprendre"], "r": "Le blog des business qui veulent grandir : <b>combien co\u00fbte un community manager \u00e0 Alger</b>, <b>5 erreurs qui tuent votre Instagram</b>, <b>reels ou posts</b>\u2026 Des conseils concrets, z\u00e9ro jargon.", "c": ["Lire les conseils", "index.html#conseils"]},
+{"k": ["arabe", "darija", "langue", "arabic"], "r": "Le site existe aussi en <b>arabe</b> \ud83d\udc47", "c": ["\u0627\u0644\u0646\u0633\u062e\u0629 \u0627\u0644\u0639\u0631\u0628\u064a\u0629", "lang:ar"]},{"k": ["anglais", "english"], "r": "The site is also available in <b>English</b> \ud83d\udc47", "c": ["English version", "lang:en"]},
+{"k": ["merci", "thanks", "choukran", "super", "top", "genial"], "r": "Avec grand plaisir ! \ud83d\ude0a Une autre question ?"},
+{"k": ["humain", "personne", "equipe", "parler", "discuter", "conseiller"], "r": "Avec plaisir ! L'\u00e9quipe vous r\u00e9pond vite sur WhatsApp \ud83d\udc47", "c": ["Discuter sur WhatsApp", "https://wa.me/213672645825?text=Bonjour%20Advortex%20%21%20J%27ai%20une%20question."]}
+];
+var fab=document.getElementById('chatFab'),panel=document.getElementById('chatPanel'),
+    body=document.getElementById('chatBody'),chips=document.getElementById('chatChips'),
+    input=document.getElementById('chatText'),teaser=document.getElementById('chatTeaser'),
+    opened=false,greeted=false,chipsHidden=false;
+function esc(t){var d=document.createElement('div');d.textContent=t;return d.innerHTML}
+function norm(t){return ' '+t.toLowerCase()
+ .replace(/[\u00e0\u00e1\u00e2\u00e4]/g,'a').replace(/[\u00e9\u00e8\u00ea\u00eb]/g,'e')
+ .replace(/[\u00ee\u00ef]/g,'i').replace(/[\u00f4\u00f6]/g,'o').replace(/[\u00f9\u00fb\u00fc]/g,'u')
+ .replace(/\u00e7/g,'c').replace(/[^\u0061-\u007a\u0030-\u0039\u0600-\u06ff ]/g,' ')+' '}
+function addMsg(html,who){var d=document.createElement('div');d.className='cp-msg '+who;d.innerHTML=html;body.appendChild(d);body.scrollTop=body.scrollHeight;return d}
+function typing(on){var ex=body.querySelector('.cp-typing');if(ex)ex.remove();if(!on)return;
+ var d=document.createElement('div');d.className='cp-typing';d.innerHTML='<b></b><b></b><b></b>';
+ body.appendChild(d);body.scrollTop=body.scrollHeight}
+function langURL(u){if(u.indexOf('lang:')!==0)return u;var l=u.slice(5);var p=(location.pathname.split('/').pop()||'index.html');var b=p.replace(/-ar\\.html$/,'').replace(/-en\\.html$/,'').replace(/\\.html$/,'');return l==='ar'?b+'-ar.html':l==='en'?b+'-en.html':b+'.html'}
+function botSay(e){typing(true);setTimeout(function(){typing(false);var h=e.r;
+ if(e.c){h+='<br><a class="cp-cta" target="_blank" rel="noopener" href="'+langURL(e.c[1])+'">'+e.c[0]+'</a>'}
+ addMsg(h,'bot')},900+Math.random()*500)}
+function kbFind(t){t=norm(t);var best=null,bs=0;
+ for(var i=0;i<KB.length;i++){var e=KB[i],s=0;
+  for(var j=0;j<e.k.length;j++){var kw=e.k[j],n=kw.split(' ').length,idx=-1,c=0;
+   while((idx=t.indexOf(kw,idx+1))>-1){c++}
+   if(c)s+=c*(1+0.7*(n-1))}
+  if(s>bs){bs=s;best=e}}
+ return best}
+function hideChips(){if(chipsHidden)return;chipsHidden=true;chips.style.display='none'}
+function send(text){text=(text||'').trim();if(!text)return;hideChips();teaser.classList.remove('show');
+ addMsg(esc(text),'user');input.value='';
+ var e=kbFind(text);
+ if(e){botSay(e);return}
+ typing(true);setTimeout(function(){typing(false);
+  addMsg(S.fallback+'<br><a class="cp-cta" target="_blank" rel="noopener" href="'+WA+'?text='+encodeURIComponent(S.fallbackPre+text)+'">'+S.fallbackCta+'</a>','bot')},1000)}
+function renderChips(){chips.innerHTML='';S.chips.forEach(function(c){var b=document.createElement('button');
+ b.type='button';b.textContent=c;b.addEventListener('click',function(){send(c)});chips.appendChild(b)})}
+function openChat(){opened=true;panel.classList.add('open');document.body.classList.add('chat-open');
+ teaser.classList.remove('show');if(!greeted){greeted=true;renderChips();botSay({r:S.greeting})}
+ setTimeout(function(){input.focus()},350)}
+function closeChat(){panel.classList.remove('open');document.body.classList.remove('chat-open')}
+fab.addEventListener('click',function(){panel.classList.contains('open')?closeChat():openChat()});
+document.getElementById('chatClose').addEventListener('click',closeChat);
+document.getElementById('chatSend').addEventListener('click',function(){send(input.value)});
+input.addEventListener('keydown',function(e){if(e.key==='Enter')send(input.value)});
+teaser.addEventListener('click',openChat);
+setTimeout(function(){if(!opened)teaser.classList.add('show')},9000);
+setTimeout(function(){teaser.classList.remove('show')},24000);
+
+})();
+</script>
+
+  <script src="/assets/advortex-leads.js" defer></script>
+</body>
+</html>
